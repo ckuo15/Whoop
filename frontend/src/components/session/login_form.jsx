@@ -1,5 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import loginCSS from '../../stylesheets/login.css';
+import resetCSS from '../../stylesheets/reset.css';
+import { Link } from 'react-router-dom';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -55,25 +58,53 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <br />
-            <input type="text"
-              value={this.state.email}
-              onChange={this.update('email')}
-              placeholder="Email"
+        <div className="login-top-header"></div>
+        <div className="login-form-image-container">
+          <form className="login-form" onSubmit={this.handleSubmit}>
+            <div className="login-form-container">
+              <br />
+              <h3>Log In to Whoop</h3>
+              <p className="login-form-subheading">
+                New to Whoop? <Link to="/signup">Sign up</Link>
+              </p>
+              <p className="login-form-legality">
+                By logging in, you agree to Whoop's Terms of Service and Privacy
+                Policy.
+              </p>
+              <div className="login-line-divider"></div>
+              <input
+                className="login-form-inputs"
+                type="text"
+                value={this.state.email}
+                onChange={this.update("email")}
+                placeholder="Email"
+              />
+              <br />
+              <input
+                className="login-form-inputs"
+                type="password"
+                value={this.state.password}
+                onChange={this.update("password")}
+                placeholder="Password"
+              />
+              <br />
+              <input className="login-form-button" type="submit" value="Log In" />
+              {this.renderErrors()}
+              <p className="login-sign-up">
+                New to Whoop? <Link to="signup">Sign up</Link>
+              </p>
+            </div>
+          </form>
+          <div className="login-image-div">
+            <img
+              className="login-form-image"
+              src="/static/images/signup-image.png"
+              alt="Login Image"
             />
-            <br />
-            <input type="password"
-              value={this.state.password}
-              onChange={this.update('password')}
-              placeholder="Password"
-            />
-            <br />
-            <input type="submit" value="Submit" />
-            {this.renderErrors()}
           </div>
-        </form>
+        </div>
+        <footer className="login-footer-container">
+        </footer>
       </div>
     );
   }
