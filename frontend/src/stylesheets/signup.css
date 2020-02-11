@@ -1,3 +1,30 @@
+.errors-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 1% 20%;
+  padding: 18px;
+  background: #fcd6d3;
+  font-family: sans-serif;
+  box-sizing: border-box;
+  border-radius: 3px;
+  font-size: 16px;
+  line-height: 1.5em;
+  align-self: center;
+}
+
+.errors-ul {
+    margin-left: 90px;
+}
+
+.dismiss-link {
+  cursor: pointer;
+  font-size: 20px;
+  color: #666;
+  filter: alpha(opacity=50);
+  opacity: 0.5;
+  text-decoration: none; 
+}
+
 .signup-page {
     font-family: sans-serif;
 
@@ -7,7 +34,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
     margin-bottom: 30px;
     margin-left: 90px;
     height: 600px;
@@ -107,7 +133,7 @@
     background: #D32322;
     color: white;
     height: 40px;
-    width: 267px;
+    width: 266px;
     font-size: 20px;
     border-radius: 5px;
     margin-bottom: 10px;
@@ -116,7 +142,7 @@
 .loginLink {
     color: grey;
     font-size: 12px;
-    margin-left: 122px;
+    margin-left: 120px;
 }
 .loginbutton {
     text-decoration: none;

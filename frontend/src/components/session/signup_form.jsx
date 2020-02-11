@@ -15,7 +15,8 @@ class SignupForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.clearedErrors = false;
+    // this.clearedErrors = false;
+    this.clearErrors = this.clearErrors.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -44,15 +45,20 @@ class SignupForm extends React.Component {
     this.props.signup(user, this.props.history);
   }
 
+  clearErrors() {
+    this.setState( {errors: {} })
+  };
+
   renderErrors() {
     return (
-      <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>
-            {this.state.errors[error]}
-          </li>
-        ))}
-      </ul>
+      <div className='errors-container'>
+        <ul className='errors-ul'>
+          {Object.keys(this.state.errors).map((error, i) => (
+            <li key={`error-${i}`}>{this.state.errors[error]}</li>
+          ))}
+        </ul>
+        <p onClick= {this.clearErrors} className='dismiss-link'>x</p>
+      </div>
     );
   }
 
@@ -60,11 +66,11 @@ class SignupForm extends React.Component {
     return (
       <div className="signup-page">
         <div className="signup-nav">
-            {/* <span>Whoop</span> */}
-            <img className="icon-image" src='/static/images/whooplogo.png'/>
-            {/* <i class="fab fa-yelp"></i> */}
+          <a href="/">
+            <img className="icon-image" src='/static/images/whooplogo.png' />
+          </a>
         </div>
-        {this.renderErrors()}
+        {Object.keys(this.state.errors).length === 0 ? null : this.renderErrors()}
         <div className="signup-form-container">
           <form onSubmit={this.handleSubmit}>
             <div className="left-side">
@@ -78,7 +84,7 @@ class SignupForm extends React.Component {
               <input
                 type="text"
                 value={this.state.username}
-                onChange={this.update("handle")}
+                onChange={this.update("username")}
                 placeholder="Username"
                 className= 'username'
               />
