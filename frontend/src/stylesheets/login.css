@@ -106,7 +106,7 @@ html,body {
   margin-bottom: -7px;
 }
 
-/* .login-form-inputs {
+.login-form-inputs-red {
   width: 100%;
   display: block;
   -webkit-box-sizing: border-box;
@@ -122,7 +122,7 @@ html,body {
   line-height: 1.28571em;
   line-height: 1.29em;
   margin-bottom: -7px;
-} */
+}
  
 .login-form-button {
   padding: 10px 13px;  

@@ -17,6 +17,10 @@ class LoginForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
     this.clearErrors = this.clearErrors.bind(this);
+    this.handleInputBars = this.handleInputBars.bind(this); //
+
+    this.inputRefOne = React.createRef(); // 
+    this.inputRefTwo = React.createRef(); //
   }
 
   componentWillReceiveProps(nextProps) {
@@ -45,10 +49,13 @@ class LoginForm extends React.Component {
   }
 
   clearErrors() {
+    this.inputRefOne.current.className = "login-form-inputs";
+    this.inputRefTwo.current.className = "login-form-inputs";
     this.setState({ errors: {} })
   }
 
   renderErrors() {
+    this.handleInputBars(); //
     return (
       <div className="login-errors-container">
         <ul className="login-errors-ul">
@@ -59,6 +66,22 @@ class LoginForm extends React.Component {
         <p onClick={this.clearErrors} className="login-dismiss-link">x</p>
       </div>
     );
+  }
+
+  handleInputBars() { // 
+    if (
+      Object.values(this.state.errors).includes("No matching email exists") ||
+      Object.values(this.state.errors).includes("Email is invalid")
+    ) {
+      this.inputRefOne.current.className = "login-form-inputs-red";
+    } else if (
+      Object.values(this.state.errors).includes(
+        "Incorrect email or password combination"
+      )
+    ) {
+      this.inputRefOne.current.className = "login-form-inputs-red";
+      this.inputRefTwo.current.className = "login-form-inputs-red";
+    } 
   }
 
   render() {
@@ -74,7 +97,9 @@ class LoginForm extends React.Component {
             />
           </Link>
         </div>
-        {Object.keys(this.state.errors).length === 0 ? null : this.renderErrors()}
+        {Object.keys(this.state.errors).length === 0
+          ? null
+          : this.renderErrors()}
         <div className="login-form-image-container">
           <form className="login-form" onSubmit={this.handleSubmit}>
             <div className="login-form-container">
@@ -94,6 +119,8 @@ class LoginForm extends React.Component {
                 value={this.state.email}
                 onChange={this.update("email")}
                 placeholder="Email"
+                onClick={this.clearErrors}
+                ref={this.inputRefOne} //
               />
               <br />
               <input
@@ -102,6 +129,8 @@ class LoginForm extends React.Component {
                 value={this.state.password}
                 onChange={this.update("password")}
                 placeholder="Password"
+                onClick={this.clearErrors}
+                ref={this.inputRefTwo} //
               />
               <br />
               <input
