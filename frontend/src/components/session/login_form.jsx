@@ -104,6 +104,7 @@ class LoginForm extends React.Component {
           </div>
         </div>
         <footer className="login-footer-container">
+          <img className="login-footer-image" src="/static/images/city-landscape.png" alt=""/>
         </footer>
       </div>
     );

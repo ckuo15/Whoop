@@ -152,5 +152,14 @@
 .login-footer-container {
   border-top: 1px solid #CCCCCC;
   background-color: #F5F5F5;
-  height: 30vh;
+  height: 19vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.login-footer-image {
+  background-color: #F5F5F5;
+  width: 90vh;
+  height: 16vh;
 }
