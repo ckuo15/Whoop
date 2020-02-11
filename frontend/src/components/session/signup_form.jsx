@@ -1,7 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import signupCSS from '../../stylesheets/signup.css';
-import signUpImage from '../../images/signup-image.png'
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -104,7 +103,7 @@ class SignupForm extends React.Component {
               {this.renderErrors()}
             </div>
           </form>
-          <img className="form-image" src={signUpImage} />
+          <img className="form-image" src="/static/images/signup-image.png" />
         </div>
       </div>
     );
