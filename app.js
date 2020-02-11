@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const db = require('./config/keys').mongoURI;
 const bodyParser = require('body-parser');
 const passport = require('passport');
+const path = require('path');
 
 
 const users = require("./routes/api/users");
@@ -19,6 +20,8 @@ mongoose
   .catch(err => console.log(err));
 
 app.use("/api/users", users);
+
+app.use("/static", express.static(path.join(__dirname, "public")));
 
 const port = process.env.PORT || 5000;
 

@@ -1,7 +1,7 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import signupCSS from '../../stylesheets/signup.css';
-import signUpImage from '../../images/signup-image.png'
+import resetCSS from '../../stylesheets/reset.css';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -60,14 +60,17 @@ class SignupForm extends React.Component {
     return (
       <div className="signup-page">
         <div className="signup-nav">
-          <span>Whoop</span>
+            {/* <span>Whoop</span> */}
+            <img className="icon-image" src='/static/images/whooplogo.png'/>
+            {/* <i class="fab fa-yelp"></i> */}
         </div>
-        <div className="login-form-container">
+        {this.renderErrors()}
+        <div className="signup-form-container">
           <form onSubmit={this.handleSubmit}>
-            <div className="login-form">
-              <p>Sign Up for Whoop</p>
-              <p>Connect with great local business</p>
-              <p>
+            <div className="left-side">
+              <p className='signupforwhoop'>Sign Up for Whoop</p>
+              <p className='connect'>Connect with great local business</p>
+              <p className='agreement'>
                 By continuing, you agree to Whoop's Terms of Service and
                 acknowledge Whoop's Privacy Policy
               </p>
@@ -77,6 +80,7 @@ class SignupForm extends React.Component {
                 value={this.state.username}
                 onChange={this.update("handle")}
                 placeholder="Username"
+                className= 'username'
               />
               <br />
               <input
@@ -84,6 +88,7 @@ class SignupForm extends React.Component {
                 value={this.state.email}
                 onChange={this.update("email")}
                 placeholder="Email"
+                className='email'
               />
               <br />
               <input
@@ -91,6 +96,7 @@ class SignupForm extends React.Component {
                 value={this.state.password}
                 onChange={this.update("password")}
                 placeholder="Password"
+                className='password'
               />
               <br />
               <input
@@ -98,13 +104,24 @@ class SignupForm extends React.Component {
                 value={this.state.password2}
                 onChange={this.update("password2")}
                 placeholder="Confirm Password"
+                className='password2'
               />
               <br />
-              <input type="submit" value="Submit" />
-              {this.renderErrors()}
+              <p className='marketing'>
+                You also understand that Whoop may send marketing emails about Whoop's products, services, and local events. You can unsubscribe at any time.
+              </p>
+              <br />
+              <input className='submit' type="submit" value="Sign Up" />
+              <span className='loginLink'>Already on Whoop?</span>
+              <span><Link className='loginbutton' to='/login'>Log In</Link></span>
             </div>
           </form>
-          <img className="form-image" src={signUpImage} />
+          <div className='right-side'>
+              <img className="form-image" src='/static/images/signup-image.png' />
+          </div>
+        </div>
+        <div className='bottom'>
+          <img className='building' src='/static/images/footer.png'/>
         </div>
       </div>
     );
