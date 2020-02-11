@@ -16,6 +16,7 @@ class LoginForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.clearErrors = this.clearErrors.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -43,22 +44,37 @@ class LoginForm extends React.Component {
     this.props.login(user);
   }
 
+  clearErrors() {
+    this.setState({ errors: {} })
+  }
+
   renderErrors() {
     return (
-      <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>
-            {this.state.errors[error]}
-          </li>
-        ))}
-      </ul>
+      <div className="login-errors-container">
+        <ul className="login-errors-ul">
+          {Object.keys(this.state.errors).map((error, i) => (
+            <li key={`error-${i}`}>{this.state.errors[error]}</li>
+          ))}
+        </ul>
+        <p onClick={this.clearErrors} className="login-dismiss-link">x</p>
+      </div>
     );
   }
 
   render() {
     return (
       <div className="login-container">
-        <div className="login-top-header"></div>
+        <div className="login-top-header">
+          <Link to="/">
+            <img
+              className="login-whoop-logo"
+              src="/static/images/whooplogo.png"
+              alt="Whoop Logo"
+              width="300"
+            />
+          </Link>
+        </div>
+        {Object.keys(this.state.errors).length === 0 ? null : this.renderErrors()}
         <div className="login-form-image-container">
           <form className="login-form" onSubmit={this.handleSubmit}>
             <div className="login-form-container">
@@ -74,7 +90,7 @@ class LoginForm extends React.Component {
               <div className="login-line-divider"></div>
               <input
                 className="login-form-inputs"
-                type="text"
+                type="email"
                 value={this.state.email}
                 onChange={this.update("email")}
                 placeholder="Email"
@@ -88,8 +104,11 @@ class LoginForm extends React.Component {
                 placeholder="Password"
               />
               <br />
-              <input className="login-form-button" type="submit" value="Log In" />
-              {this.renderErrors()}
+              <input
+                className="login-form-button"
+                type="submit"
+                value="Log In"
+              />
               <p className="login-sign-up">
                 New to Whoop? <Link to="signup">Sign up</Link>
               </p>
@@ -104,7 +123,11 @@ class LoginForm extends React.Component {
           </div>
         </div>
         <footer className="login-footer-container">
-          <img className="login-footer-image" src="/static/images/city-landscape.png" alt=""/>
+          <img
+            className="login-footer-image"
+            src="/static/images/city-landscape.png"
+            alt=""
+          />
         </footer>
       </div>
     );

@@ -1,11 +1,19 @@
+html,body { 
+  height: 100%;
+  display: flex; 
+  flex-direction: column;
+}
+
 .login-top-header {
   background-color: #D32323;
   height: 64px;
+  display: flex;
+  justify-content: center;
 }
 
 .login-form-image-container {
   display: flex;
-  padding: 15px 15px 36px 15px;
+  padding: 26px 15px 56px 15px;
   justify-content: center;
 }
 
@@ -69,6 +77,7 @@
   margin-bottom: 12px;
   font-size: 12px;
   line-height: 16px;
+  margin-top: 2px;
 }
 
 .login-line-divider {
@@ -96,6 +105,24 @@
   line-height: 1.29em;
   margin-bottom: -7px;
 }
+
+/* .login-form-inputs {
+  width: 100%;
+  display: block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 5px 9px;
+  background: #fff;
+  border: 2px solid #D32322;
+  border-radius: 3px;
+  font-size: 14px;
+  color: #D32322;
+  line-height: 1.28571em;
+  line-height: 1.29em;
+  margin-bottom: -7px;
+} */
  
 .login-form-button {
   padding: 10px 13px;  
@@ -153,15 +180,20 @@
 .login-footer-container {
   border-top: 1px solid #CCCCCC;
   background-color: #F5F5F5;
-  height: 24vh;
+  height: 27vh;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .login-footer-image {
   background-color: #F5F5F5;
   width: 100%;
+}
+
+.login-form-container {
+  display: flex;
+  flex-direction: column;
 }
 
 @media screen and (max-width: 880px) {
@@ -174,7 +206,7 @@
   }
 
   .login-footer-container {
-    height: 18vh
+    height: 22vh
   }
 }
 
@@ -184,6 +216,38 @@
   }
 
   .login-footer-container {
-    height: 12vh
+    height: 22vh
   }
+}
+
+.login-whoop-logo {
+  height: 139px;
+  margin-top: -42px;
+}
+
+.login-errors-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 1% 20%;
+  padding: 18px;
+  background: #fcd6d3;
+  font-family: sans-serif;
+  box-sizing: border-box;
+  border-radius: 3px;
+  font-size: 16px;
+  line-height: 1.5em;
+  align-self: center;
+}
+
+.login-errors-ul {
+  margin-left: 10px;
+}
+
+.login-dismiss-link {
+  cursor: pointer;
+  font-size: 20px;
+  color: #666;
+  filter: alpha(opacity=50);
+  opacity: 0.5;
+  text-decoration: none;
 }
