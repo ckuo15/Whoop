@@ -3,9 +3,13 @@ import { Link } from 'react-router-dom';
 
 class Splash extends React.Component {
     render (){
-        <div>
-            
-        </div>
+        return (
+            <div>
+                <div className='top'>
+                    <img className="splash-image" src='/static/images/pancake.png' />
+                </div>
+            </div>
+        )
     }
 };
 
