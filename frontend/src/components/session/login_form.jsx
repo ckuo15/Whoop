@@ -57,7 +57,7 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="login-container">
         <div className="login-top-header"></div>
         <div className="login-form-image-container">
           <form className="login-form" onSubmit={this.handleSubmit}>
