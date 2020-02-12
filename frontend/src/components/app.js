@@ -5,12 +5,14 @@ import MainPage from "./main/main_page";
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import NavBarContainer from "./nav/navbar_container";
-import SearchContainer from './search/search_container';
+import Splash from './splash/splash';
+import SearchContainer from "./search/search_container";
+
 
 const App = () => (
   <div>
     <Switch>
-      <AuthRoute exact path="/" component={MainPage} />
+      <AuthRoute exact path="/" component={Splash} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <AuthRoute exact path="/search" component={SearchContainer} />
