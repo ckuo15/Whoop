@@ -1,6 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-// import './navbar.css'
+import { Link } from 'react-router-dom';
+import NavBarCSS from '../../stylesheets/navbar.css';
+import BusinessSearch from '../business/business_search';
+
 
 class NavBar extends React.Component {
     constructor(props) {
@@ -18,18 +20,15 @@ class NavBar extends React.Component {
     getLinks() {
         if (this.props.loggedIn) {
             return (
-                <div>
-                    {/* <Link to={'/tweets'}>All Tweets</Link>
-                    <Link to={'/profile'}>Profile</Link>
-                    <Link to={'/new_tweet'}>Write a Tweet</Link> */}
+                <div>                
                     <button onClick={this.logoutUser}>Logout</button>
                 </div>
-            );
+            ); 
         } else {
             return (
-                <div>
-                    <Link to={'/signup'}>Signup</Link>
-                    <Link to={'/login'}>Login</Link>
+                <div className="buttons">
+                    <Link to={'/login'} className="login-navbar">Login</Link>
+                    <Link to={'/signup'} className="signup-navbar">Signup</Link>
                 </div>
             );
         }
@@ -37,11 +36,13 @@ class NavBar extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className='navbar'>
+                <img height="150" width="250" className="nav-icon" src="/static/images/whooplogo.png" />
+                <BusinessSearch isMainPage={false} />
                 {this.getLinks()}
             </div>
         );
     }
 }
 
-export default NavBar;
+export default NavBar; 

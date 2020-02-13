@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import Search from "./search";
+import MapIndex from "./map_index";
 
 const mapStateToProps = state => {
   return {
@@ -14,4 +14,4 @@ const mapStateToProps = state => {
 //   };
 // };
 
-export default connect(mapStateToProps)(Search);
+export default connect(mapStateToProps)(MapIndex);

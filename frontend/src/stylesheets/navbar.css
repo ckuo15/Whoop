@@ -1,0 +1,88 @@
+.navbar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: 'Fira Sans', sans-serif;
+    border-bottom: 1px solid #E0E0E0;
+    height: 130px;
+}
+
+/* .nav-searchbar .form-inline {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+} */
+
+.login-navbar {
+    text-decoration: none;
+    border: 1px solid grey;
+    border-radius: 3px;
+    padding: 10px 17px;
+    margin: 8px;
+    color: black;
+}
+
+.login-navbar:hover {
+    background: #E0E0E0;
+}
+
+.signup-navbar {
+    text-decoration: none;
+    border: 1px solid #F43839;
+    border-radius: 3px;
+    padding: 10px 17px;
+    margin: 5px;
+    background: #F43839;
+    color: white;
+}
+
+.nav-searchbar .form-control {
+    width: 300px;
+    height: 45px;
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: 1px solid #F0F0F0;
+    border-radius: 4px 0px 0px 4px;
+    -moz-box-shadow:    3px 3px 10px 0px rgb(235, 235, 235);
+    -webkit-box-shadow: 3px 3px 10px 0px rgb(235, 235, 235);
+    box-shadow:         3px 3px 10px 0px rgb(235, 235, 235);
+}
+
+.nav-searchbar .map-search {
+    width: 300px;
+    height: 45px;
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: 1px solid #F0F0F0; 
+    border-radius: 0px 0px 0px 4px;
+    -moz-box-shadow:    3px 3px 10px 0px rgb(235, 235, 235);
+    -webkit-box-shadow: 3px 3px 10px 0px rgb(235, 235, 235);
+    box-shadow:         3px 3px 10px 0px rgb(235, 235, 235);
+}
+
+.nav-searchbar .search {
+    margin-top: 9px;
+    border-radius: 0 5px 4px 0;
+    border: 0;
+    background: #F43839;
+    padding: 10px 17px 12px;
+    box-shadow: none;
+    font-size: 20px;
+    -moz-box-shadow:    3px 3px 10px 0px rgb(235, 235, 235);
+    -webkit-box-shadow: 3px 3px 10px 0px rgb(235, 235, 235);
+    box-shadow:         3px 3px 10px 0px rgb(235, 235, 235);
+}
+
+.nav-searchbar .fa-search {
+    height: 2px;
+    width: 20px;
+    color: white;
+    cursor: pointer;
+}
+
+.buttons {
+    margin-top: 8px;
+    margin-left: 5px;
+}
