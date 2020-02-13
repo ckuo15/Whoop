@@ -14,6 +14,7 @@ class BusinessSearch extends React.Component {
         this.setState({
             [e.target.name]: e.target.value
         });
+        this.props.onChange(this.state.locationValue)
     };
     onSubmit = e => {
         e.preventDefault();

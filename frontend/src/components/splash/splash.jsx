@@ -3,20 +3,25 @@ import { Link } from 'react-router-dom';
 import resetCSS from '../../stylesheets/reset.css';
 import splashCSS from '../../stylesheets/splash.css';
 import BusinessSearch from '../business/business_search';
-import { withRouter } from 'react-router'
 
 class Splash extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { shown: false };
+    this.state = { shown: false, location: 'San Francisco, CA' };
 
     this.switchDisplay = this.switchDisplay.bind(this);
     this.closeDisplay = this.closeDisplay.bind(this);
     this.redirectToSearch = this.redirectToSearch.bind(this);
+    this.changeLocation = this.changeLocation.bind(this);
+  }
+
+  changeLocation(value) {
+    this.setState({ location: value })
   }
 
   redirectToSearch(event) {
-    this.props.history.push(`/search?businesses=${event.currentTarget.dataset.business}&location=location`)
+    this.state.location = this.state.location || "San Francisco, CA"
+    this.props.history.push(`/search?businesses=${event.currentTarget.dataset.business}&location=${this.state.location}`)
   }
 
   switchDisplay(event) {
@@ -114,7 +119,7 @@ class Splash extends React.Component {
               src="/static/images/whooplogo.png"
             />
           </a>
-          <BusinessSearch />
+          <BusinessSearch onChange={this.changeLocation}/>
           <div className="top-category">
             <span className="wrench">
               <i className="fas fa-wrench"></i> Plumbers
