@@ -6,7 +6,8 @@ import Business_searchCSS from '../../stylesheets/business_search.css';
 
 class BusinessSearch extends React.Component {
     state = {
-        businessData: {}
+        searchValue: "",
+        locationValue: ""
     };
 
     onChange = e => {
