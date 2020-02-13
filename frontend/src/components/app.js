@@ -5,7 +5,6 @@ import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import NavBarContainer from "./nav/navbar_container";
 import SplashContainer from './splash/splash_container';
-import SearchContainer from "./search/search_container";
 import BusinessSearchContainer from './business/business_show_container';
 
 

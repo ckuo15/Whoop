@@ -23,9 +23,14 @@ class BusinessSearch extends React.Component {
         locationValue = locationValue || "San Francisco, CA"
         push(`/search?businesses=${searchValue}&location=${locationValue}`)
     };
+
     render() {
+        console.log(this.props.isMainPage);
+        let myClass;
+        if (this.props.isMainPage) myClass = "splash-searchbar";
+        else myClass = "nav-searchbar";
         return (
-            <div>
+            <div className={myClass}>
                 <form onSubmit={this.onSubmit} className="form-inline">
                     <input
                         type="search"
