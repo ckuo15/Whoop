@@ -6,6 +6,7 @@ import SignupFormContainer from './session/signup_form_container';
 import NavBarContainer from "./nav/navbar_container";
 import SplashContainer from './splash/splash_container';
 import SearchContainer from "./search/search_container";
+import BusinessSearchContainer from './business/business_show_container';
 
 
 const App = (props) => {
@@ -16,6 +17,7 @@ const App = (props) => {
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <ProtectedRoute exact path="/search" component={SearchContainer} />
       <Route exact path="/" component={SplashContainer} />
+      <Route path="/businesses/:business_id" component={BusinessSearchContainer} />
     </Switch>
   </div>
   )
