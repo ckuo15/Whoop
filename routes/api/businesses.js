@@ -15,9 +15,9 @@ router.get('/', (req, res) => {
 });
 
 
-router.get('/businesses/:business_id', (req, res) => {
-    Business.find({ owner: req.params.owner_id})
-        .then(businesses => res.json(businesses))
+router.get('/:business_id', (req, res) => {
+    Business.findOne({_id: req.params.business_id})
+        .then(business => res.json(business))
         .catch(err => res.status(404).json({nobusinessfound: 'No businesses found from this user'}));
 })
 
