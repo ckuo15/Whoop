@@ -58,6 +58,7 @@ class Search extends React.Component {
   };
 
   render() {
+    console.log(this.state.parsedQuery)
     const style = {
       width: "50vw",
       height: "75vh",
