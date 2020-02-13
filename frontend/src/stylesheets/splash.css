@@ -6,21 +6,26 @@
 .top {
     background-image: url("/static/images/pancake.jpg");
     height: 600px;
-    width: 1440px;
+    width: 100%;
     background-size: cover;
     box-shadow: inset 0 0 0 500px rgba(92, 91, 91, 0.432);
     font-family: 'Fira Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .nav {
     display: flex;
     justify-content: space-around;
+    width: 100%;
 }
 
 .nav-left {
     color: rgb(255, 255, 255);
     font-weight: bold;
-    margin-top: 50px;
+    margin-top: 60px;
+    margin-right: 26%;
 }
 
 .nav-left span {
@@ -33,6 +38,92 @@
 
 .nav-right span {
     padding-right: 20px;
+}
+
+.nav-right-login {
+    margin-top: 50px;
+}
+
+
+.fa-user-alt {
+    font-size: 30px;
+    color: white;
+    background: rgb(180, 180, 180);
+    padding: 5px;
+    border-radius: 5px 0 0 5px;
+    margin-right: 4px;
+}
+
+.fa-caret-down {
+    font-size: 13px;
+    color: white;
+    position: relative;
+    bottom: 5px;
+}
+
+.profile-container {
+    height: 40px;
+    width: 59px;
+    background: rgba(37, 37, 37, 0.358);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#drop {
+    font-size: 30px;
+    color: white;
+    background: rgb(180, 180, 180);
+    padding: 5px;
+    border-radius: 3px;
+    margin-right: 4px;
+}
+
+.cred-drop {
+    display: flex;
+    border-bottom: 1px solid rgb(180, 177, 177);
+    margin: 15px;
+    margin-top: 10px;
+    padding: 10px;
+    justify-content: center;
+}
+
+.username-drop {
+    margin-top: 13px;
+}
+
+.fa-caret-up {
+    color: white;
+    margin-left: 30px;
+    font-size: 30px;
+}
+
+.profile-dropdown {
+    background: white;
+    height: 100px;
+    width: 150px;
+    position: relative;
+    bottom: 21px;
+    right: 91px;
+}
+
+.caret-container {
+    display: block;
+}
+
+.caret-container-none {
+    display: none;
+}
+
+/* .username-drop {
+} */
+
+.logout-drop {
+    margin-top: 13px;
+    color: #0073BB;
+    font-size: 15px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
 }
 
 .login {
@@ -70,7 +161,7 @@
     margin-top: 20px;
 }
 
-.top-category span {
+.top-category > span {
     padding-left: 60px;
     color: white;
     font-weight: bold;
@@ -83,6 +174,7 @@
 
 .middle {
     height: 900px;
+    width: 100%;
     font-family: 'Fira Sans', sans-serif;
 }
 
@@ -92,7 +184,7 @@
     justify-content: center;
     align-items: center;
     background: #F5F5F5;
-    width: 1440px;
+    width: 100%;
 }
 
 .category span {
@@ -189,6 +281,7 @@
     align-items: center;
     font-weight: bold;
     margin-top: 50px;
+    width: 100%;
 }
 .apps span {
    color: #D32322;
@@ -218,5 +311,9 @@
 
 }
 
+.bottom {
+    display: flex;
+    align-items: flex-end;
+}
 
 

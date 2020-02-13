@@ -16,6 +16,40 @@ const BusinessSchema = new Schema({
     ref: 'user',
     required: true
   },
+  address: {
+    type: String,
+    required: true
+  },
+  city: {
+    type: String,
+    required: true
+  },
+  state: {
+    type: String,
+    required: true
+  },
+  zipcode: {
+    type: String,
+    required: true
+  },
+  hours: {
+    type: Schema.Types.Mixed,
+    required: true
+  },
+  latitude: {
+    type: Number
+  },
+  longitude: {
+    type: Number
+  },
+  phone: {
+    type: String,
+    required: true
+  },
+  price_range: {
+    type: String,
+    required: true
+  },
   date: {
     type: Date,
     default: Date.now

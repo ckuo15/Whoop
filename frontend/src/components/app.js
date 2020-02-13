@@ -1,23 +1,24 @@
 import React from 'react';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import { Switch } from 'react-router-dom';
-import MainPage from "./main/main_page";
+import { Switch, Route } from 'react-router-dom';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import NavBarContainer from "./nav/navbar_container";
-import Splash from './splash/splash';
+import SplashContainer from './splash/splash_container';
 import SearchContainer from "./search/search_container";
 
 
-const App = () => (
+const App = (props) => {
+  return (
   <div>
     <Switch>
-      <AuthRoute exact path="/" component={Splash} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
-      <AuthRoute exact path="/search" component={SearchContainer} />
+      <ProtectedRoute exact path="/search" component={SearchContainer} />
+      <Route exact path="/" component={SplashContainer} />
     </Switch>
   </div>
-);
+  )
+};
 
 export default App;
