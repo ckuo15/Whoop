@@ -1,7 +1,7 @@
 import React from "react";
 import { GoogleApiWrapper, InfoWindow, Map, Marker } from "google-maps-react";
 
-class Search extends React.Component {
+class MapIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -106,4 +106,4 @@ class Search extends React.Component {
 
 export default GoogleApiWrapper({
   apiKey: process.env.REACT_APP_MAPS_KEY
-})(Search);
+})(MapIndex);

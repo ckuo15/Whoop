@@ -105,7 +105,7 @@ class Splash extends React.Component {
               src="/static/images/whooplogo.png"
             />
           </a>
-          <BusinessSearch />
+          <BusinessSearch isMainPage={true} />
           <div className="top-category">
             <span className="wrench">
               <i className="fas fa-wrench"></i> Plumbers

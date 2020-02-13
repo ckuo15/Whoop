@@ -1,10 +1,10 @@
-.form-inline {
+.splash-searchbar .form-inline {
     display: flex;
     justify-content: center;
     align-content: center;
 }
 
-.form-control {
+.splash-searchbar .form-control {
     width: 500px;
     height: 50px;
     padding: 6px;
@@ -14,7 +14,7 @@
     border-radius: 4px 0px 0px 4px;
 }
 
-.map-search {
+.splash-searchbar .map-search {
     width: 500px;
     height: 50px;
     padding: 6px;
@@ -24,7 +24,7 @@
     /* border-radius: 0px 0px 0px 4px; */
 }
 
-.search {
+.splash-searchbar .search {
     margin-top: 8px;
     border-radius: 0 4px 4px 0;
     border: 0;
@@ -34,7 +34,7 @@
     font-size: 15px;
 }
 
-.fa-search {
+.splash-searchbar .fa-search {
     height: 10px;
     width: 30px;
     color: white;
