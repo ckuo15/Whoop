@@ -30,19 +30,19 @@ class MapIndex extends React.Component {
   }
 
   addMarker(coordArr) {
-    const infowindow = new window.google.maps.InfoWindow({
-      content: "Hello World!"
-    });
+    coordArr.forEach((coord, idx) => {
+      var infowindow = new window.google.maps.InfoWindow({
+        content: this.props.stores[idx].name
+      });
 
-    coordArr.forEach(coord => {
       var marker = new window.google.maps.Marker({
         position: coord, 
         map: this.map,
-        title: "Hello world!"
+        title: this.props.stores[idx].name
       });
 
       marker.addListener("click", () => {
-        infowindow.open(this.map, this.marker);
+        infowindow.open(this.map, marker);
       });
     })
   }
