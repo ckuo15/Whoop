@@ -1,102 +1,75 @@
 import React from "react";
-import { GoogleApiWrapper, InfoWindow, Map, Marker } from "google-maps-react";
+import { InfoWindow } from "google-maps-react";
+// Need Places and Geolocation
 
 class MapIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      mapIsReady: false,
       showingInfoWindow: false,
       activeMarker: {},
       selectedPlace: {},
-      stores: [
-        { lat: 47.49855629475769, lng: -122.14184416996333 },
-        { latitude: 47.359423, longitude: -122.021071 },
-        { latitude: 47.2052192687988, longitude: -121.988426208496 },
-        { latitude: 47.6307081, longitude: -122.1434325 },
-        { latitude: 47.3084488, longitude: -122.2140121 },
-        { latitude: 47.5524695, longitude: -122.0425407 }
-      ],
+      stores: [],
     };
-    // binding this to event-handler functions
-    this.onMarkerClick = this.onMarkerClick.bind(this);
-    this.onMapClick = this.onMapClick.bind(this);
 
+    this.addMarker = this.addMarker.bind(this);
   }
-  onMarkerClick = (props, marker, e) => {
-    this.setState({
-      selectedPlace: props,
-      activeMarker: marker,
-      showingInfoWindow: true
+
+  componentDidMount() {
+    const ApiKey = process.env.REACT_APP_MAPS_KEY;
+    const script = document.createElement('script');
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${ApiKey}`;
+    script.async = true;
+    script.defer = true;
+    script.addEventListener("load", () => {
+      this.setState({ mapIsReady: true });
     });
-  };
-  onMapClick = props => {
-    if (this.state.showingInfoWindow) {
-      this.setState({
-        showingInfoWindow: false,
-        activeMarker: null
+
+    document.body.appendChild(script);
+  }
+
+  addMarker(coordArr) {
+    const infowindow = new window.google.maps.InfoWindow({
+      content: "Hello World!"
+    });
+    coordArr.forEach(coord => {
+      this.marker = new window.google.maps.Marker({
+        position: coord, 
+        map: this.map,
+        title: "Hello world!"
       });
+      this.marker.addListener("click", () => {
+        infowindow.open(this.map, this.marker);
+      });
+    })
+  }
+
+  componentDidUpdate() {
+    if (this.state.mapIsReady) {
+      this.map = new window.google.maps.Map(document.getElementById("map"), {
+        center: { lat: 37.775337, lng: -122.419433 },
+        zoom: 15,
+        mapTypeId: "roadmap",
+        disableDefaultUI: true,
+        zoomControl: true,
+        zoomControlOptions: {
+          position: window.google.maps.ControlPosition.TOP_LEFT
+        }
+      });
+
+      this.addMarker([
+        { lat: 37.775337, lng: -122.419433 },
+        { lat: 37.785537, lng: -122.429453 }
+      ]);
     }
-  };
-
-
-  displayMarkers = () => {
-    return this.state.stores.map((store, index) => {
-      return (
-        <Marker
-          key={index}
-          id={index}
-          position={{
-            lat: store.latitude,
-            lng: store.longitude
-          }}
-          onClick={() => console.log("You clicked me!")}
-        />
-      );
-    });
-  };
+  }
 
   render() {
     return (
-      <Map
-        item
-        xs={12}
-        style={this.props.style}
-        google={this.props.google}
-        onClick={this.onMapClick}
-        zoom={15}
-        initialCenter={{ lat: 37.775337, lng: -122.419433 }}
-      >
-        <Marker
-          onClick={this.onMarkerClick}
-          title={"Changing Colors Garage"}
-          position={{ lat: 37.775337, lng: -122.419433 }}
-          name={"Changing Colors Garage"}
-        />
-        <InfoWindow
-          marker={this.state.activeMarker}
-          visible={this.state.showingInfoWindow}
-        ></InfoWindow>
-      </Map>
+      <div id="map" style={this.props.style}/>
     );
   }
-
-  displayMarkers = () => {
-    return this.state.stores.map((store, index) => {
-      return (
-        <Marker
-          key={index}
-          id={index}
-          position={{
-            lat: store.latitude,
-            lng: store.longitude
-          }}
-          onClick={() => console.log("You clicked me!")}
-        />
-      );
-    });
-  };
 }
 
-export default GoogleApiWrapper({
-  apiKey: process.env.REACT_APP_MAPS_KEY
-})(MapIndex);
+export default MapIndex
