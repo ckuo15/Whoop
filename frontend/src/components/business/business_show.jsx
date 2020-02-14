@@ -1,8 +1,8 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import NavBarContainer from '../nav/navbar_container';
-import BusinessShowCSS from '../../stylesheets/business_show.css';
-import MapIndex from '../map/map_index';
+import NavBarContainer from "../nav/navbar_container";
+import BusinessShowCSS from "../../stylesheets/business_show.css";
+import MapIndex from "../map/map_index";
 
 class BusinessShow extends React.Component {
   state = {
@@ -18,15 +18,10 @@ class BusinessShow extends React.Component {
   }
 
   render() {
-    // const { name } = this.state.businessData;
-    // const { category } = this.state.businessData;
-    // const { address } = this.state.businessData;
-    // const { city } = this.state.businessData;
-    // const { state } = this.state.businessData;
-    // const { zipcode } = this.state.businessData;
-    // const { hours } = this.state.businessData;
-    // const { phone } = this.state.businessData;
-    // const { price_range } = this.state.businessData;
+    const style = {
+      width: "28vw",
+      height: "36vh"
+    };
 
     const {
       name,
@@ -39,7 +34,6 @@ class BusinessShow extends React.Component {
       phone,
       price_range
     } = this.state.businessData;
-
 
     return (
       <div>
@@ -66,7 +60,7 @@ class BusinessShow extends React.Component {
               </div>
               <div className="location-hours">
                 <div className="left-map">
-                  <MapIndex />
+                  <MapIndex style={style} />
                 </div>
                 <div className="right-hours">
                   <p className="time">
@@ -118,4 +112,5 @@ class BusinessShow extends React.Component {
     );
   }
 }
+
 export default withRouter(BusinessShow);

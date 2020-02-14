@@ -63,7 +63,7 @@ class MapIndex extends React.Component {
         style={this.props.style}
         google={this.props.google}
         onClick={this.onMapClick}
-        zoom={13}
+        zoom={15}
         initialCenter={{ lat: 37.775337, lng: -122.419433 }}
       >
         <Marker
