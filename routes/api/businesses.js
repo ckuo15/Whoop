@@ -14,11 +14,10 @@ router.get('/', (req, res) => {
         .catch(err => res.status(404).json({ nobusinessesfound: 'No businesses found'}))
 });
 
-
 router.get('/:business_id', (req, res) => {
     Business.findOne({_id: req.params.business_id})
         .then(business => res.json(business))
-        .catch(err => res.status(404).json({nobusinessfound: 'No businesses found from this user'}));
+        .catch(err => res.status(404).json({nobusinessfound: 'No business found with this id'}));
 })
 
 router.post('/',(req, res) => {

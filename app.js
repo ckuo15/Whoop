@@ -9,6 +9,7 @@ const path = require('path');
 
 const users = require("./routes/api/users");
 const businesses = require("./routes/api/businesses");
+const categories = require("./routes/api/categories");
 
 app.get("/", (req, res) => res.send("<iframe width='560' height='315' src='https://www.youtube.com/embed/4vaN01VLYSQ' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"));
 
@@ -22,6 +23,7 @@ mongoose
 
 app.use("/api/users", users);
 app.use("/api/businesses", businesses);
+app.use("/api/categories", categories);
 
 app.use("/static", express.static(path.join(__dirname, "public")));
 

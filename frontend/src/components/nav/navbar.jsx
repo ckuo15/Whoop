@@ -34,6 +34,10 @@ class NavBar extends React.Component {
         }
     }
 
+    changeLocation(value) {
+        this.setState({ location: value })
+    }
+
     render() {
         return (
             <div className='navbar'>

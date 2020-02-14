@@ -14,14 +14,13 @@ class BusinessSearch extends React.Component {
         this.setState({
             [e.target.name]: e.target.value
         });
-        this.props.onChange(this.state.locationValue)
     };
     onSubmit = e => {
         e.preventDefault();
         const { push } = this.props.history;
-        let { searchValue, locationValue } = this.state;
-        locationValue = locationValue || "San Francisco, CA"
-        push(`/search?businesses=${searchValue}&location=${locationValue}`)
+        let { searchValue } = this.state;
+        push(`/search?businesses=${searchValue}&location=San%20Francisco,%20CA`);
+        window.location.reload();
     };
 
     render() {

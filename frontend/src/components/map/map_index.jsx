@@ -33,13 +33,15 @@ class MapIndex extends React.Component {
     const infowindow = new window.google.maps.InfoWindow({
       content: "Hello World!"
     });
+
     coordArr.forEach(coord => {
-      this.marker = new window.google.maps.Marker({
+      var marker = new window.google.maps.Marker({
         position: coord, 
         map: this.map,
         title: "Hello world!"
       });
-      this.marker.addListener("click", () => {
+
+      marker.addListener("click", () => {
         infowindow.open(this.map, this.marker);
       });
     })
@@ -49,7 +51,7 @@ class MapIndex extends React.Component {
     if (this.state.mapIsReady) {
       this.map = new window.google.maps.Map(document.getElementById("map"), {
         center: { lat: 37.775337, lng: -122.419433 },
-        zoom: 15,
+        zoom: 13,
         mapTypeId: "roadmap",
         disableDefaultUI: true,
         zoomControl: true,
@@ -58,11 +60,13 @@ class MapIndex extends React.Component {
         }
       });
 
-      this.addMarker([
-        { lat: 37.775337, lng: -122.419433 },
-        { lat: 37.785537, lng: -122.429453 }
-      ]);
+      if (this.props.stores !== undefined && this.props.stores.length > 0) {
+        const storesCoords = this.props.stores.map(store => ({ lat: store.latitude, lng: store.longitude }))
+        this.addMarker(storesCoords);
+      }
     }
+
+    
   }
 
   render() {

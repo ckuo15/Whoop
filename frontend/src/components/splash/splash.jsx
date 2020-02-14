@@ -7,21 +7,15 @@ import BusinessSearch from '../business/business_search';
 class Splash extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { shown: false, location: 'San Francisco, CA' };
+    this.state = { shown: false };
 
     this.switchDisplay = this.switchDisplay.bind(this);
     this.closeDisplay = this.closeDisplay.bind(this);
     this.redirectToSearch = this.redirectToSearch.bind(this);
-    this.changeLocation = this.changeLocation.bind(this);
-  }
-
-  changeLocation(value) {
-    this.setState({ location: value })
   }
 
   redirectToSearch(event) {
-    this.state.location = this.state.location || "San Francisco, CA"
-    this.props.history.push(`/search?businesses=${event.currentTarget.dataset.business}&location=${this.state.location}`)
+    this.props.history.push(`/search?businesses=${event.currentTarget.dataset.business}&location=San%20Francisco,%20CA`)
   }
 
   switchDisplay(event) {
@@ -119,7 +113,7 @@ class Splash extends React.Component {
               src="/static/images/whooplogo.png"
             />
           </a>
-          <BusinessSearch isMainPage={true} onChange={this.changeLocation} />
+          <BusinessSearch isMainPage={true} />
           <div className="top-category">
             <span className="wrench">
               <i className="fas fa-wrench"></i> Plumbers
