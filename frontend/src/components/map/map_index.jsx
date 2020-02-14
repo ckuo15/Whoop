@@ -65,15 +65,15 @@ class MapIndex extends React.Component {
 
     return (
       <Map
-        item
-        xs={12}
-        style={style}
+        // item
+        // xs={12}
+        // style={style}
         google={this.props.google}
-        onClick={this.onMapClick}
-        zoom={13}
-        initialCenter={{ lat: 37.775337, lng: -122.419433 }}
+        // onClick={this.onMapClick}
+        // zoom={13}
+        // initialCenter={{ lat: 37.775337, lng: -122.419433 }}
       >
-        <Marker
+        {/* <Marker
           onClick={this.onMarkerClick}
           title={"Changing Colors Garage"}
           position={{ lat: 37.775337, lng: -122.419433 }}
@@ -82,7 +82,7 @@ class MapIndex extends React.Component {
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
-        ></InfoWindow>
+        ></InfoWindow> */}
       </Map>
     );
   }
@@ -107,3 +107,4 @@ class MapIndex extends React.Component {
 export default GoogleApiWrapper({
   apiKey: process.env.REACT_APP_MAPS_KEY
 })(MapIndex);
+
