@@ -4,6 +4,7 @@ import NavBarContainer from "../nav/navbar_container";
 import searchCSS from '../../stylesheets/search.css';
 const queryString = require("query-string");
 
+
 class Search extends React.Component {
   constructor(props) {
     super(props);
@@ -50,13 +51,32 @@ class Search extends React.Component {
 
     return (
       <div className="search-container">
-        <NavBarContainer />
+        <div className="navbar"><NavBarContainer /></div>
         <div className="search-bottom-container">
           <div className="search-left-half">
-            <h1>Browsing {businesses} in {location} Businesses</h1>
-            <h3>All Results</h3>
+            <p className="search-result-header">Browsing San Francisco, CA Businesses</p>
+            <div className="search-results">
+              <p className="all-results">All Results</p>
+              <div className="stores">
+                  <div className="store">
+                      <div className="middle-content">
+                          <div className="store-picture">
+                            <img className="business-pic" src="/static/images/search-image.png" />
+                          </div>
+                          <div className="store-description">
+                            <p className="store-name">1. The House</p>
+                            <img className="store-stars" src="/static/images/review-stars.png"/>
+                            <p className="store-price">$$$</p>
+                            <p className="store-number">(415) 986-8612</p>
+                            <p className="store-address">1230 Grant Ave</p>
+                            <p className="store-city">San Francisco, CA 94133</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
           </div>
-          <MapIndex style={style} stores={this.state.stores}/>
+          <MapIndex style={style}  stores={this.state.stores}/>
         </div>
       </div>
     );
