@@ -1,0 +1,91 @@
+.navbar {
+}
+
+.search-container {
+    font-family: 'Fira Sans', sans-serif;    
+}
+
+.search-bottom-container {
+  display: flex;
+}
+
+.search-left-half {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+}
+
+.search-result-header {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.all-results {
+  font-weight: bold;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.stores {
+  margin-top: 20px;
+}
+
+.store {
+  display: flex;
+  border: 1px solid #D6D6D6;
+  border-radius: 4px;
+  height: 250px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  cursor: pointer;
+}
+
+.store:hover {
+    -moz-box-shadow:    10px 3px 10px 3px rgb(235, 235, 235);
+    -webkit-box-shadow: 10px 3px 10px 3px rgb(235, 235, 235);
+    box-shadow:         10px 3px 10px 3px rgb(235, 235, 235);
+}
+
+.middle-content {
+  display: flex;
+  align-self: center;
+  margin-left: 30px;
+  margin-top: 5px;
+}
+
+
+.business-pic {
+  height: 200px;
+  width: 200px;
+}
+
+.store-description {
+  margin-left: 10px;
+}
+
+.store-name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.store-stars {
+  height: 23px;
+  width: 100px;
+  margin-bottom: 5px;
+}
+
+.store-price {
+  margin-bottom: 55px;
+  color: #757280;
+}
+
+.store-number, .store-address {
+  margin-bottom: 10px;
+  color: #757280;
+}
+
+.store-city {
+  color: #757280;
+}

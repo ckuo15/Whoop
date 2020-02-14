@@ -6,27 +6,41 @@ import BusinessSearch from '../business/business_search';
 
 class Splash extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = { shown: false }
+    super(props);
+    this.state = { shown: false, location: 'San Francisco, CA' };
 
     this.switchDisplay = this.switchDisplay.bind(this);
     this.closeDisplay = this.closeDisplay.bind(this);
+    this.redirectToSearch = this.redirectToSearch.bind(this);
+    this.changeLocation = this.changeLocation.bind(this);
+  }
+
+  changeLocation(value) {
+    this.setState({ location: value })
+  }
+
+  redirectToSearch(event) {
+    this.state.location = this.state.location || "San Francisco, CA"
+    this.props.history.push(`/search?businesses=${event.currentTarget.dataset.business}&location=${this.state.location}`)
   }
 
   switchDisplay(event) {
     event.preventDefault();
     if (this.state.shown === false) {
-      this.setState({ shown: true })
+      this.setState({ shown: true });
       event.currentTarget.lastElementChild.className = "caret-container";
-    } 
+    }
   }
 
   closeDisplay(event) {
-    const classes = ["caret-container", "profile-dropdown", "cred-drop"]
-    if (this.state.shown === true && (!classes.includes(event.target.parentElement.className))) {
+    const classes = ["caret-container", "profile-dropdown", "cred-drop"];
+    if (
+      this.state.shown === true &&
+      !classes.includes(event.target.parentElement.className)
+    ) {
       const dropdown = document.getElementsByClassName("caret-container");
-      dropdown[0].className = 'caret-container-none';
-      this.setState({ shown: false })
+      dropdown[0].className = "caret-container-none";
+      this.setState({ shown: false });
     }
   }
 
@@ -55,20 +69,20 @@ class Splash extends React.Component {
         </div>
       );
     } else {
-        return (
-          <div className="nav-right">
-            <span>
-              <Link className="login" to="/login">
-                Log In
-              </Link>
-            </span>
-            <span>
-              <Link className="signup" to="/signup">
-                Sign Up
-              </Link>
-            </span>
-          </div>
-        );
+      return (
+        <div className="nav-right">
+          <span>
+            <Link className="login" to="/login">
+              Log In
+            </Link>
+          </span>
+          <span>
+            <Link className="signup" to="/signup">
+              Sign Up
+            </Link>
+          </span>
+        </div>
+      );
     }
   }
 
@@ -105,7 +119,7 @@ class Splash extends React.Component {
               src="/static/images/whooplogo.png"
             />
           </a>
-          <BusinessSearch isMainPage={true} />
+          <BusinessSearch isMainPage={true} onChange={this.changeLocation} />
           <div className="top-category">
             <span className="wrench">
               <i className="fas fa-wrench"></i> Plumbers
@@ -128,15 +142,47 @@ class Splash extends React.Component {
               <img
                 className="restaurants"
                 src="/static/images/restaurants.png"
+                data-business="restaurants"
+                onClick={this.redirectToSearch}
               />
-              <img className="shopping" src="/static/images/shopping.png" />
-              <img className="nightlife" src="/static/images/bar.png" />
-              <img className="active" src="/static/images/active.png" />
+              <img
+                className="shopping"
+                src="/static/images/shopping.png"
+                data-business="shopping"
+                onClick={this.redirectToSearch}
+              />
+              <img
+                className="nightlife"
+                src="/static/images/bar.png"
+                data-business="nightlife"
+                onClick={this.redirectToSearch}
+              />
+              <img
+                className="active"
+                src="/static/images/active.png"
+                data-business="active"
+                onClick={this.redirectToSearch}
+              />
             </div>
             <div className="category-bottom">
-              <img className="spa" src="/static/images/spa.png" />
-              <img className="auto" src="/static/images/automotive.png" />
-              <img className="home" src="/static/images/home.png" />
+              <img
+                className="spa"
+                src="/static/images/spa.png"
+                data-business="spabeauty"
+                onClick={this.redirectToSearch}
+              />
+              <img
+                className="auto"
+                src="/static/images/automotive.png"
+                data-business="auto"
+                onClick={this.redirectToSearch}
+              />
+              <img
+                className="home"
+                src="/static/images/home.png"
+                data-business="homeservices"
+                onClick={this.redirectToSearch}
+              />
               <img className="more" src="/static/images/more.png" />
             </div>
           </div>
