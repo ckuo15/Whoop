@@ -1,0 +1,10 @@
+.search-container {
+}
+
+.search-bottom-container {
+  display: flex
+}
+
+.search-left-half {
+  width: 50vw;
+}

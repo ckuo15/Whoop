@@ -1,6 +1,5 @@
 import React from "react";
 import { GoogleApiWrapper, InfoWindow, Map, Marker } from "google-maps-react";
-const queryString = require('query-string');
 
 class MapIndex extends React.Component {
   constructor(props) {
@@ -17,7 +16,6 @@ class MapIndex extends React.Component {
         { latitude: 47.3084488, longitude: -122.2140121 },
         { latitude: 47.5524695, longitude: -122.0425407 }
       ],
-      parsedQuery: queryString.parse(this.props.history.location.search)
     };
     // binding this to event-handler functions
     this.onMarkerClick = this.onMarkerClick.bind(this);
@@ -58,19 +56,11 @@ class MapIndex extends React.Component {
   };
 
   render() {
-    console.log(this.state.parsedQuery)
-    const style = {
-      width: "50vw",
-      height: "75vh",
-      marginLeft: "auto",
-      marginRight: "auto"
-    };
-
     return (
       <Map
         item
         xs={12}
-        style={style}
+        style={this.props.style}
         google={this.props.google}
         onClick={this.onMapClick}
         zoom={13}

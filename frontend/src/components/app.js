@@ -6,6 +6,7 @@ import SignupFormContainer from './session/signup_form_container';
 import NavBarContainer from "./nav/navbar_container";
 import SplashContainer from './splash/splash_container';
 import BusinessSearchContainer from './business/business_show_container';
+import SearchContainer from './search/search_container';
 
 
 const App = (props) => {
