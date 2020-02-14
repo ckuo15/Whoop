@@ -29,7 +29,8 @@ class BusinessShow extends React.Component {
           <div className='images'>
             <img className="yelp-images" src="/static/images/yelp-images.png" />
           </div>
-          <div className="business-info">
+          <div>
+            <div className="business-info">
             <div className="left-side">
               <p className="business-name">{ name }</p>
               <img className="review-stars" src="/static/images/review-stars.png" />
@@ -40,7 +41,6 @@ class BusinessShow extends React.Component {
               </div>
               <div className="location-hours">
                   <div className="left-map">
-                    <MapIndex/>
                   </div>
                   <div className="right-hours">
                     <p className="time"><span className="day">Mon</span><span>{hours ? hours.mon : ""}</span></p>
@@ -53,6 +53,7 @@ class BusinessShow extends React.Component {
                   </div>
               </div>
             </div>
+          </div>
             <div className="right-side">
               <p className="business-number"><i className="fas fa-phone-alt"></i> { phone }</p>
               <p className="business-direction"><i className="fas fa-directions"></i>Get Directions</p>
