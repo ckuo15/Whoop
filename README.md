@@ -8,7 +8,6 @@ Whoop is a Yelp™ clone that shows a list of businesses ranging from different 
 
 * Suhaib Khan
 * Cindy Kuo
-* Paul Pomichter
 
 ## Technologies
 
