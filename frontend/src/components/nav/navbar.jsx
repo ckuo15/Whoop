@@ -37,7 +37,7 @@ class NavBar extends React.Component {
     render() {
         return (
             <div className='navbar'>
-                <img height="150" width="250" className="nav-icon" src="/static/images/whooplogo.png" />
+                <Link to={'/'}><img height="150" width="250" className="nav-icon" src="/static/images/whooplogo.png" /></Link>
                 <BusinessSearch isMainPage={false} />
                 {this.getLinks()}
             </div>
