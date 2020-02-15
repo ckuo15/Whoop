@@ -24,7 +24,6 @@ class BusinessSearch extends React.Component {
     };
 
     render() {
-        console.log(this.props.isMainPage);
         let myClass;
         if (this.props.isMainPage) myClass = "splash-searchbar";
         else myClass = "nav-searchbar";

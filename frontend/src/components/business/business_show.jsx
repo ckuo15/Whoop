@@ -46,86 +46,107 @@ class BusinessShow extends React.Component {
           </div>
           <div>
             <div className="business-info">
-                <div className="left-side">
-                  <p className="business-name">{name}</p>
-                  <img
-                    className="review-stars"
-                    src="/static/images/review-stars.png"
-                  />
-                  <p className="price-range"> {price_range}</p>
-                  <div className="write-add">
-                    <p className="write-review">
-                      <i className="fas fa-star"></i>Write a Review
-                    </p>
-                    <p className="add-photo">
-                      <i className="fas fa-camera"></i>Add Photo
-                    </p>
-                  </div>
-            <div className="location-hours">
-                <div className="left-map">
+              <div className="left-side">
+                <p className="business-name">{name}</p>
+                <img
+                  className="review-stars"
+                  src="/static/images/review-stars.png"
+                />
+                <p className="price-range"> {price_range}</p>
+                <div className="write-add">
+                  <p className="write-review">
+                    <i className="fas fa-star"></i>Write a Review
+                  </p>
+                  <p className="add-photo">
+                    <i className="fas fa-camera"></i>Add Photo
+                  </p>
+                </div>
+                <div className="location-hours">
+                  <div className="left-map">
                     <div className="header">
                       <p>Location & Hours</p>
                     </div>
-                  <div className="map-info">
-                      <MapIndex style={style} />
+                    <div className="map-info">
+                      <MapIndex
+                        style={style}
+                        stores={[this.state.businessData]}
+                      />
                       <p className="address">{address}</p>
-                      <p className="city">{city}, {state} {zipcode}</p>
+                      <p className="city">
+                        {city}, {state} {zipcode}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="right-hours">
+                    <p className="time">
+                      <span className="day">Mon</span>
+                      <span>{hours ? hours.mon : ""}</span>
+                    </p>
+                    <p className="time">
+                      <span className="day">Tue </span>
+                      {hours ? hours.tue : ""}
+                    </p>
+                    <p className="time">
+                      <span className="day">Wed</span>
+                      {hours ? hours.wed : ""}
+                    </p>
+                    <p className="time">
+                      <span className="day">Thu </span>
+                      {hours ? hours.thurs : ""}
+                    </p>
+                    <p className="time">
+                      <span className="day">Fri&nbsp;&nbsp;&nbsp; </span>
+                      {hours ? hours.fri : ""}
+                    </p>
+                    <p className="time">
+                      <span className="day">Sat&nbsp;&nbsp;</span>
+                      {hours ? hours.sat : ""}
+                    </p>
+                    <p className="time">
+                      <span className="day">Sun&nbsp;&nbsp;</span>
+                      {hours ? hours.sun : ""}
+                    </p>
                   </div>
                 </div>
-                <div className="right-hours">
-                  <p className="time">
-                    <span className="day">Mon</span>
-                    <span>{hours ? hours.mon : ""}</span>
-                  </p>
-                  <p className="time">
-                    <span className="day">Tue </span>
-                    {hours ? hours.tue : ""}
-                  </p>
-                  <p className="time">
-                    <span className="day">Wed</span>
-                    {hours ? hours.wed : ""}
-                  </p>
-                  <p className="time">
-                    <span className="day">Thu </span>
-                    {hours ? hours.thurs : ""}
-                  </p>
-                  <p className="time">
-                    <span className="day">Fri&nbsp;&nbsp;&nbsp; </span>
-                    {hours ? hours.fri : ""}
-                  </p>
-                  <p className="time">
-                    <span className="day">Sat&nbsp;&nbsp;</span>
-                    {hours ? hours.sat : ""}
-                  </p>
-                  <p className="time">
-                    <span className="day">Sun&nbsp;&nbsp;</span>
-                    {hours ? hours.sun : ""}
-                  </p>
+                <div className="amentities">
+                  <div className="amen-header">
+                    <p>Amenities</p>
+                  </div>
+                  <div className="amentities-top">
+                    <p>
+                      <span>
+                        <i className="fas fa-briefcase-medical"></i>
+                      </span>
+                      <span className="health-score"> Health Score </span>89 out
+                      of 100
+                    </p>
+                    <p>
+                      <i className="fas fa-check"></i>&nbsp; High
+                      Chairs&nbsp;&nbsp;<span>Yes</span>
+                    </p>
+                  </div>
+                  <div className="amentities-bottom">
+                    <p>
+                      <i className="far fa-calendar-alt"></i> Takes
+                      Reservations&nbsp;&nbsp;
+                      <span>Yes</span>
+                    </p>
+                    <p>
+                      <i className="fas fa-truck"></i>Delivery&nbsp;&nbsp;
+                      <span>Yes</span>
+                    </p>
+                  </div>
                 </div>
               </div>
-              <div className="amentities">
-                <div className="amen-header">
-                  <p>Amentities</p>
-                </div>
-                <div className="amentities-top">
-                    <p><span><i className="fas fa-briefcase-medical"></i></span><span className="health-score">  Health Score  </span>89 out of 100</p>
-                    <p><i className="fas fa-check"></i>&nbsp;   High Chairs&nbsp;&nbsp;<span>Yes</span></p>
-                </div>
-                <div className="amentities-bottom">
-                    <p><i className="far fa-calendar-alt"></i>   Takes Reservations<span>Yes</span></p>
-                    <p><i className="fas fa-truck"></i>Delivery&nbsp;&nbsp;<span>Yes</span></p>
-                </div>
+              <div className="right-side">
+                <p className="business-number">
+                  <i className="fas fa-phone-alt"></i> {phone}
+                </p>
+                <p className="business-direction">
+                  <i className="fas fa-directions"></i>Get Directions
+                </p>
               </div>
             </div>
-              <div className="right-side">
-                  <p className="business-number">
-                    <i className="fas fa-phone-alt"></i> {phone}
-                  </p>
-                  <p className="business-direction">
-                    <i className="fas fa-directions"></i>Get Directions
-                  </p>
-              </div>
-          </div>
           </div>
         </div>
         <div className="footer" onClick={this.closeDisplay}>

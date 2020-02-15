@@ -48,9 +48,16 @@ class MapIndex extends React.Component {
   }
 
   componentDidUpdate() {
+    let centerPoint;
+    if (this.props.stores.length > 1) {
+      centerPoint = { lat: 37.775337, lng: -122.419433 };
+    } else {
+      centerPoint = this.props.stores.map(store => ({ lat: store.latitude, lng: store.longitude }))[0]
+    }
+    
     if (this.state.mapIsReady) {
       this.map = new window.google.maps.Map(document.getElementById("map"), {
-        center: { lat: 37.775337, lng: -122.419433 },
+        center: centerPoint,
         zoom: 13,
         mapTypeId: "roadmap",
         disableDefaultUI: true,
@@ -70,6 +77,7 @@ class MapIndex extends React.Component {
   }
 
   render() {
+    console.log(this.props.stores)
     return (
       <div id="map" style={this.props.style}/>
     );
