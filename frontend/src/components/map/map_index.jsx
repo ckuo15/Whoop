@@ -70,6 +70,7 @@ class MapIndex extends React.Component {
   }
 
   render() {
+    console.log(this.props.stores)
     return (
       <div id="map" style={this.props.style}/>
     );
