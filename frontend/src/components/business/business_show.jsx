@@ -110,7 +110,7 @@ class BusinessShow extends React.Component {
                 </div>
                 <div className="amentities">
                   <div className="amen-header">
-                    <p>Amentities</p>
+                    <p>Amenities</p>
                   </div>
                   <div className="amentities-top">
                     <p>
@@ -127,7 +127,8 @@ class BusinessShow extends React.Component {
                   </div>
                   <div className="amentities-bottom">
                     <p>
-                      <i className="far fa-calendar-alt"></i> Takes Reservations
+                      <i className="far fa-calendar-alt"></i> Takes
+                      Reservations&nbsp;&nbsp;
                       <span>Yes</span>
                     </p>
                     <p>
