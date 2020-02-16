@@ -45,7 +45,8 @@ router.post('/',(req, res) => {
     newBusiness.save().then(business => res.json(business)).catch(err => res.status(422).json(err));
 });
 
-router.post('/:business_id/upload', upload.single('photo'), (req, res) => {
+router.post('/:business_id/upload', upload.single('photoFile'), (req, res) => {
+    console.log(req.file);
     const s3 = new AWS.S3({
         accessKeyId: awsAccessID,
         secretAccessKey: awsSecretKey
@@ -62,10 +63,10 @@ router.post('/:business_id/upload', upload.single('photo'), (req, res) => {
         console.log(`File uploaded successfully`);
     });
     const ObjectUrl = `https://${params.Bucket}.s3.amazonaws.com/${params.Key}`; 
-
-    new BusinessPhoto({
+   
+    new BusinessPhoto({ // Create a new entry in our database
         business: req.params.business_id,
-        uploader: req.body.user_id,
+        uploader: req.body.uploader,
         photoURL: ObjectUrl
     }).save().then(businessPhoto => res.json(businessPhoto)).catch(err => res.status(422).json(err));
 });
