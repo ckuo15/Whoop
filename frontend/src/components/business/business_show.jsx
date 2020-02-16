@@ -15,7 +15,7 @@ class BusinessShow extends React.Component {
   componentDidMount() {
     this.props
       .fetchBusiness(this.props.businessId)
-      .then(businessData =>
+      .then(businessData => 
         this.setState({ businessData: businessData.business.data })
       );
   }
@@ -57,9 +57,9 @@ class BusinessShow extends React.Component {
                   <p className="write-review">
                     <i className="fas fa-star"></i>Write a Review
                   </p>
-                  <p className="add-photo">
+                  <button className="add-photo" onClick={() => this.props.history.push(`/businesses/${this.props.businessId}/upload`)}>
                     <i className="fas fa-camera"></i>Add Photo
-                  </p>
+                  </button>
                 </div>
                 <div className="location-hours">
                   <div className="left-map">
