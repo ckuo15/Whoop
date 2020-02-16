@@ -1,15 +1,24 @@
 import React from "react";
+import FormData from 'form-data';
 import NavBarContainer from "../nav/navbar_container";
 import BusinessUploadCSS from '../../stylesheets/business_upload.css'
+import { addBusinessPhoto } from "../../util/businesses_api_util";
 
 class BusinessUpload extends React.Component {
   constructor(props) {
     super(props);
+
+    this.handleUploadImage = this.handleUploadImage.bind(this);
   }
 
   handleUploadImage(event) {
     event.preventDefault();
-    console.log(event.target.files)
+    let photoFile = new FormData(); // Make a new FormData object from our form-data npm package
+    Array.from(event.target.files).forEach(file => { //  Turn our FileList from the input="file" into an array then iterate
+      return photoFile.append('photoFile', file); // For each file give it a name of 'photoFile' so multer in businesses.js understands it, and append the file
+    });
+    photoFile.append('uploader', `${this.props.userId}`) // Append the userId to the req.body as uploader since user ID is required in our schema
+    addBusinessPhoto(this.props.businessId, photoFile) // Dispatch our action 
   }
 
   render() {
@@ -33,7 +42,8 @@ class BusinessUpload extends React.Component {
                   type="file"
                   id="file"
                   className="business-upload-inputfile"
-                  onChange={this.handleUploadImage}
+                  name="photoFile"
+                  onChange={this.handleUploadImage} // file handling of uploading image
                 />
                 <label htmlFor="file">Browse Files</label>
               </form>
