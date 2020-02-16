@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import NavBarContainer from "../nav/navbar_container";
 import BusinessShowCSS from "../../stylesheets/business_show.css";
 import MapIndex from "../map/map_index";
+import BusinessShowPhotos from './business_show_photos';
 
 class BusinessShow extends React.Component {
   constructor(props){
@@ -42,7 +43,10 @@ class BusinessShow extends React.Component {
         <NavBarContainer />
         <div className="middle">
           <div className="images">
-            <img className="yelp-images" src="/static/images/yelp-images.png" />
+            {/* <img className="yelp-images" src="/static/images/yelp-images.png" /> */}
+            <ul>
+              <BusinessShowPhotos />
+            </ul>
           </div>
           <div>
             <div className="business-info">
@@ -67,10 +71,10 @@ class BusinessShow extends React.Component {
                       <p>Location & Hours</p>
                     </div>
                     <div className="map-info">
-                      <MapIndex
+                      {/* <MapIndex
                         style={style}
                         stores={[this.state.businessData]}
-                      />
+                      /> */}
                       <p className="address">{address}</p>
                       <p className="city">
                         {city}, {state} {zipcode}

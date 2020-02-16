@@ -5,7 +5,6 @@ import SearchItem from './search_item';
 import searchCSS from '../../stylesheets/search.css';
 const queryString = require("query-string");
 
-
 class Search extends React.Component {
   constructor(props) {
     super(props);
@@ -47,12 +46,12 @@ class Search extends React.Component {
     const { businesses, location } = this.state.parsedQuery; 
     const style = {
       width: "50vw",
-      height: "86vh",
+      height: "85.5vh"
     };
 
     return (
       <div className="search-container">
-        <div className="navbar"><NavBarContainer /></div>
+        <div className="navbar"><NavBarContainer search={true}/></div>
         <div className="search-bottom-container">
           <div className="search-left-half">
             <p className="search-result-header">Browsing San Francisco, CA Businesses</p>
@@ -63,7 +62,10 @@ class Search extends React.Component {
               </ul>
             </div>
           </div>
-          <MapIndex style={style}  stores={this.state.stores}/>
+          <div className="search-map-container"><MapIndex style={style} stores={this.state.stores} /></div>
+        </div>
+        <div className="footer" style={{width: "66vw"}}>
+          <img className="building" src="/static/images/footer.png" />
         </div>
       </div>
     );
