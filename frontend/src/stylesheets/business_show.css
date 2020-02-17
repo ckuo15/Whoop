@@ -176,9 +176,6 @@
     border-bottom: 1px solid #D6D6D6;
 }
 
-.health-score {
-    color: rgb(47, 140, 216);
-}
 .amen-header {
     font-weight: bold;
 }
@@ -196,8 +193,6 @@
     justify-content: space-between;
 }
 
-.fa-check {
-}
 
 .fa-truck {
     margin-right: 25px;

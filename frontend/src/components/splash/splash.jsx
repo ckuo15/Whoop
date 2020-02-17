@@ -84,7 +84,6 @@ class Splash extends React.Component {
     return (
       <div>
         <div className="top" onClick={this.closeDisplay}>
-          {/* <img className="splash-image" src='/static/images/pancake.jpg'/> */}
           <div className="nav">
             <div className="nav-left">
               <span>Write a Review</span>
