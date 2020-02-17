@@ -10,6 +10,7 @@ const users = require("./routes/api/users");
 const businesses = require("./routes/api/businesses");
 const categories = require("./routes/api/categories");
 const uploads = require("./routes/api/uploads"); // Requires AWS uploads file we made
+const reviews = require("./routes/api/reviews");
 
 app.get("/", (req, res) => res.send("<iframe width='560' height='315' src='https://www.youtube.com/embed/4vaN01VLYSQ' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"));
 
@@ -24,7 +25,8 @@ mongoose
 app.use("/api/users", users);
 app.use("/api/businesses", businesses);
 app.use("/api/categories", categories);
-app.use("/api/uploads", uploads) // Connect express to our AWS route
+app.use("/api/uploads", uploads); // Connect express to our AWS route'
+app.use("/api/reviews", reviews);
 
 if (process.env.NODE_ENV === 'production'){
   app.use(express.static('frontend/build'));

@@ -16,6 +16,9 @@ const ReviewSchema = new Schema({
     ref: 'business',
     required: true
   },
+  photo: {
+    type: String
+  },
   date: {
     type: Date,
     default: Date.now
