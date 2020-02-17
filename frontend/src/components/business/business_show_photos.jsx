@@ -7,8 +7,8 @@ class BusinessShowPhotos extends React.Component {
 
   render() {
     return (
-      <li>
-        <img src="https://s3-media0.fl.yelpcdn.com/bphoto/UzrNIkdGTZ1-cXuQDsKUmA/o.jpg"/>
+      <li className="business-show-photo-li">
+        <img className="business-show-photo-img" src={this.props.src}/>
       </li>
     )
   }

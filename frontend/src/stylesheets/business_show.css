@@ -171,7 +171,7 @@
 .amentities {
     display: flex;
     flex-direction: column;
-    height: 20vh;
+    height: 185px;
     margin-top: 15px;
     border-bottom: 1px solid #D6D6D6;
 }
@@ -200,8 +200,80 @@
 }
 
 .fa-truck {
-    margin-right: 25px;
+    margin-right: 10px;
 }
 
+.images {
+    width: 100%;
+    max-width: 1922px;
+    margin: 0 auto;
+    position: relative;
+}
 
+.business-show-ul {
+    display: flex;
+    justify-content: center; 
+} 
+
+.business-show-photo-li {
+    margin-right: 2px;
+    height: 16.667vw;
+    width: 25%;
+}
+
+.business-show-photo-img {
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+
+@media only screen and (max-width: 1096px) {
+  .business-show-container {
+    position: absolute;
+  }
+
+  .images {
+      width: 135%;
+  }
+}
+
+@media only screen and (max-width: 596px) {
+  .images {
+      width: 165%;
+  }
+}
+
+.prev {
+    font-size: 55px;
+    color: #fbfbfbe0;
+    cursor: pointer;
+}
+
+.business-show-prev-container {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: 1.8%;
+}
+
+.next {
+    font-size: 55px;
+    color: #fbfbfbe0;
+    cursor: pointer;
+}
+
+.business-show-next-container {
+    position: absolute;
+    right: 1px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-right: 1.8%;
+}
+
+.prev:hover, .next:hover {
+    color: white;
+}
 

@@ -1,13 +1,13 @@
-// const mongoose = require('mongoose');
-// const db = require('./keys').mongoURI;
-// const Category = require('../models/Category');
-// const User = require('../models/User');
-// const Business = require('../models/Business');
+const mongoose = require('mongoose');
+const db = require('./keys').mongoURI;
+const Category = require('../models/Category');
+const User = require('../models/User');
+const Business = require('../models/Business');
 
-// mongoose
-//   .connect(db, { useNewUrlParser: true })
-//   .then(() => console.log("Seeded successfully"))
-//   .catch(err => console.log(err));
+mongoose
+  .connect(db, { useNewUrlParser: true })
+  .then(() => console.log("Seeded successfully"))
+  .catch(err => console.log(err));
 
 // new User({
 //   username: "username",
@@ -30,7 +30,7 @@
 // new Category({ title: "Home Services" }).save();
 
 
-// // restaurants 
+// restaurants 
 // const the_house_hours = {
 //   mon: "11:30 am - 10:00 pm",
 //   tue: "11:30 am - 10:00 pm",
@@ -916,3 +916,12 @@
 //   phone: "(415)932-1942",
 //   price_range: '$'
 // }).save();
+
+
+// new User({
+//   username: 'new_user',
+//   email: 'guy@gmail.com',
+//   password: 'hunter12'
+// }).save(function(err, user) {
+//   console.log(user.id)
+// });
