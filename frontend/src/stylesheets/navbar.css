@@ -86,3 +86,40 @@
     margin-top: 8px;
     margin-left: 5px;
 }
+
+.nav-profile-dropdown {
+    background: rgb(240, 240, 240);
+    height: 100px;
+    width: 150px;
+    position: relative;
+    bottom: 10px;
+    right: 91px;
+    z-index: 5;
+}
+
+.nav-caret-container {
+    display: block;
+}
+
+.nav-caret-container-none {
+    display: none;
+}
+
+.nav-cred-drop {
+    display: flex;
+    border-bottom: 1px solid rgb(180, 177, 177);
+    margin: 15px;
+    margin-top: 10px;
+    padding: 10px;
+    justify-content: center;
+}
+
+.nav-profile-container {
+    height: 40px;
+    width: 59px;
+    background: rgba(37, 37, 37, 0.358);
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 40px;
+    margin-left: 40px;
+}

@@ -49,6 +49,8 @@ class MapIndex extends React.Component {
     } else {
       centerPoint = this.props.stores.map(store => ({ lat: store.latitude, lng: store.longitude }))[0]
     }
+
+    // line 52 is checking if multuple business coming in from props
     
     if (this.state.mapIsReady) { // Once script is loaded, create our map
       this.map = new window.google.maps.Map(document.getElementById("map"), { // Grab the div with id map as Google says to do and pass in some attributes
