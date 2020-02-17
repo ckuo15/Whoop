@@ -115,25 +115,21 @@ class BusinessShow extends React.Component {
                   <div className="amentities-top">
                     <p>
                       <span>
-                        <i className="fas fa-briefcase-medical"></i>
+                        <i class="fas fa-parking"></i>
                       </span>
-                      <span className="health-score"> Health Score </span>89 out
-                      of 100
+                      <span> Parking Street </span> Yes
                     </p>
                     <p>
-                      <i className="fas fa-check"></i>&nbsp; High
-                      Chairs&nbsp;&nbsp;<span>Yes</span>
+                      <i class="far fa-credit-card"></i>&nbsp; Accepts Credit Cards &nbsp;&nbsp;<span>Yes</span>
                     </p>
                   </div>
                   <div className="amentities-bottom">
                     <p>
-                      <i className="far fa-calendar-alt"></i> Takes
-                      Reservations&nbsp;&nbsp;
-                      <span>Yes</span>
+                        <i class="fas fa-wifi"></i>&nbsp;Wi-Fi&nbsp;&nbsp;<span>Yes</span>
                     </p>
                     <p>
                       <i className="fas fa-truck"></i>Delivery&nbsp;&nbsp;
-                      <span>Yes</span>
+                      <span>No</span>
                     </p>
                   </div>
                 </div>
