@@ -4,6 +4,8 @@ import NavBarContainer from "../nav/navbar_container";
 import BusinessShowCSS from "../../stylesheets/business_show.css";
 import MapIndex from "../map/map_index";
 import BusinessShowPhotos from './business_show_photos';
+import ReviewContainer from "../review/review_container";
+
 
 class BusinessShow extends React.Component {
   constructor(props){
@@ -176,14 +178,19 @@ class BusinessShow extends React.Component {
                     </p>
                   </div>
                 </div>
+                <p className="review-header">Recommended Reviews</p>
+                <ReviewContainer businessId={this.props.businessId} />
+                 <p className="review-page">Page 1 of 1</p>
               </div>
               <div className="right-side">
-                <p className="business-number">
-                  <i className="fas fa-phone-alt"></i> {phone}
-                </p>
-                <p className="business-direction">
-                  <i className="fas fa-directions"></i>Get Directions
-                </p>
+                <div className="right-sticky">
+                  <p className="business-number">
+                    <i className="fas fa-phone-alt"></i> {phone}
+                  </p>
+                  <p className="business-direction">
+                    <a href="https://www.google.com/maps/" className="google-map"><i className="fas fa-directions"></i>Get Directions</a>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
