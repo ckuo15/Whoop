@@ -5,7 +5,8 @@ import BusinessShow from "./business_show";
 
 const mapStateToProps = (state, ownProps) => ({
   businessId: ownProps.match.params.business_id,
-  businessPhotos: state.business.photos
+  businessPhotos: state.business.photos,
+  business: state.business
 });
 
 const mapDispatchToProps = dispatch => ({
