@@ -4,8 +4,9 @@ class SearchItem extends React.Component {
   constructor(props) {
     super(props)
   }
-
+  
   render() {
+    console.log(this.props);
     return (
       <div className="stores" onClick={() => this.props.history.push(`/businesses/${this.props.store._id}`)}>
         <div className="store">
