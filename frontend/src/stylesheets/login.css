@@ -221,8 +221,8 @@ html,body {
 }
 
 .login-whoop-logo {
-  height: 139px;
-  margin-top: -42px;
+  height: 170px;
+  margin-top: -55px;
 }
 
 .login-errors-container {
@@ -250,4 +250,24 @@ html,body {
   filter: alpha(opacity=50);
   opacity: 0.5;
   text-decoration: none;
+}
+
+.demo-login-button-login {
+  background: rgb(99, 202, 14);
+  padding: 10px 13px;  
+  line-height: 1.3125em; 
+  color: #fff;
+  border: 1px solid rgb(99, 202, 14);
+  width: 300px;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+  user-select: none;
+  font-size: 16px;
+  border-radius: 3px;
+  margin-top: 20px;
 }

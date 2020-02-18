@@ -62,7 +62,9 @@ class Search extends React.Component {
               </ul>
             </div>
           </div>
-          <div className="search-map-container"><MapIndex style={style} stores={this.state.stores} /></div>
+          <div className="search-right-half">
+            <div className="search-map-container"><MapIndex style={style} stores={this.state.stores} /></div>
+          </div>
         </div>
         <div className="footer" style={{width: "66vw"}}>
           <img className="building" src="/static/images/footer.png" />

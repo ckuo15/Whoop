@@ -3,6 +3,7 @@ const db = require('./keys').mongoURI;
 const Category = require('../models/Category');
 const User = require('../models/User');
 const Business = require('../models/Business');
+const Review = require('../models/Review');
 
 mongoose
   .connect(db, { useNewUrlParser: true })
@@ -17,6 +18,39 @@ mongoose
 // new Category({ title: "Automotive" }).save();
 // new Category({ title: "Home Services" }).save();
 
+// const the_test_hours = {
+//   mon: "11:30 am - 10:00 pm",
+//   tue: "11:30 am - 10:00 pm",
+//   wed: "11:30 am - 10:00 pm",
+//   thurs: "11:30 am - 10:00 pm",
+//   fri: "11:30 am - 10:00 pm",
+//   sat: "11:30 am - 10:00 pm",
+//   sun: "5:00 pm - 10:00 pm"
+// }
+
+// new Business({
+//   category: "5e449188acf32d81822aa761",
+//   name: "Test Restaurant 3",
+//   owner: "5e449188acf32d81822aa760",
+//   address: "1230 Mission",
+//   city: "San Francisco",
+//   state: "CA",
+//   zipcode: "94133",
+//   hours: the_test_hours,
+//   latitude: 37.74565743,
+//   longitude: -122.434392219,
+//   phone: "(415)932-8312",
+//   price_range: '$'
+// }).save().then(savedBusiness => {
+//   new Review({
+//     business: savedBusiness._id,
+//     author: '5e41c3e92ca0397438730ce1',
+//     body: 'Good food! Will come again',
+//     username: 'username2'
+//   }).save().then(review => {
+//     console.log(review)
+//   })
+// })
 
 // restaurants 
 // const the_house_hours = {
@@ -42,7 +76,14 @@ mongoose
 //   longitude: -122.4092219,
 //   phone: "(415)986-8612",
 //   price_range: '$$$'
-// }).save();
+// }).save().then(savedBusiness => {
+//   new Review({
+//       business: savedBusiness._id,
+//       author: '5e41c43b2ca0397438730ce2',
+//       body: 'Good food! Will come again',
+//       username: 'username3'
+//   }).save()
+// })
 
 // const farmhouse_hours = {
 //   mon: "11:00 am - 10:00 pm",

@@ -13,7 +13,7 @@ class LoginForm extends React.Component {
       password: '',
       errors: {}
     };
-
+    this.loginDemoUser = this.loginDemoUser.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
     this.clearErrors = this.clearErrors.bind(this);
@@ -22,6 +22,15 @@ class LoginForm extends React.Component {
     this.inputRefOne = React.createRef(); // 
     this.inputRefTwo = React.createRef(); //
   }
+
+  loginDemoUser(e) {
+    e.preventDefault();
+    const user = {
+      email: 'demo@gmail.com',
+      password: 'hunter12'
+    }
+    this.props.login(user);
+  };
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser === true) {
@@ -138,6 +147,9 @@ class LoginForm extends React.Component {
                 type="submit"
                 value="Log In"
               />
+              <div className='login-demo-login'>
+                <button className='demo-login-button-login' onClick={this.loginDemoUser}>Demo Login</button>
+              </div>
               <p className="login-sign-up">
                 New to Whoop? <Link to="signup">Sign up</Link>
               </p>

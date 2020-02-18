@@ -13,11 +13,20 @@ class SignupForm extends React.Component {
       password2: '',
       errors: {}
     };
-
+    this.loginDemoUser = this.loginDemoUser.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     // this.clearedErrors = false;
     this.clearErrors = this.clearErrors.bind(this);
   }
+
+  loginDemoUser(e) {
+    e.preventDefault();
+    const user = {
+      email: 'demo@gmail.com',
+      password: 'hunter12'
+    }
+    this.props.login(user);
+  };
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.signedIn === true) {
@@ -73,7 +82,7 @@ class SignupForm extends React.Component {
         {Object.keys(this.state.errors).length === 0 ? null : this.renderErrors()}
         <div className="signup-form-container">
           <form onSubmit={this.handleSubmit}>
-            <div className="left-side">
+            <div className="sign-up-left-side">
               <p className='signupforwhoop'>Sign Up for Whoop</p>
               <p className='connect'>Connect with great local business</p>
               <p className='agreement'>
@@ -118,11 +127,16 @@ class SignupForm extends React.Component {
               </p>
               <br />
               <input className='submit' type="submit" value="Sign Up" />
-              <span className='loginLink'>Already on Whoop?</span>
-              <span><Link className='loginbutton' to='/login'>Log In</Link></span>
+              <div className='signup-demo-login'>
+                <button className='demo-login-button-signup' onClick={this.loginDemoUser}>Demo Login</button>
+              </div>
+              <div>
+                <span className='loginLink'>Already on Whoop?</span>
+                <span><Link className='loginbutton' to='/login'>Log In</Link></span>
+              </div>
             </div>
           </form>
-          <div className='right-side'>
+          <div className='.signup-right-side'>
               <img className="form-image" src='/static/images/signup-image.png' />
           </div>
         </div>
