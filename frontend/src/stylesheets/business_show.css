@@ -1,20 +1,20 @@
 .middle {
     display: flex;
     flex-direction: column;
-    height: 170vh;
+    height: 100%;
 }
+
 .yelp-images {
     width: 100%;
 }
 
 .business-info {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     margin-top: 20px;
     width: 80%;
     padding: 10px;
-    margin-left: 80px;
+    margin-left: 150px;
 }
 
 
@@ -43,19 +43,27 @@
 }
 
 .right-side {
-    width: 15%;
-    height: 16vh;
-    border: 1px solid #E0E0E0;
+    width: 16%;
+    height: 30%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     padding-left: 10px;
-    margin-left: 50px;
+    margin-left: 100px;
+}
+
+.right-sticky {
+    position: fixed;
+    border: 1px solid #E0E0E0;
+    background: white;
+    -moz-box-shadow:    10px 3px 10px 3px rgb(235, 235, 235);
+    -webkit-box-shadow: 10px 3px 10px 3px rgb(235, 235, 235);
+    box-shadow:         10px 3px 10px 3px rgb(235, 235, 235);   
 }
 
 .business-number {
     margin-top: 10px;
-    margin-left: 15px;
+    margin: 15px;
     color: #333333;
     padding-bottom: 15px;
     border-bottom: 1px solid #E0E0E0;
@@ -68,10 +76,15 @@
 
 .fa-directions {
     font-size: 23px;
-    margin-top: 15px;
     color: #666666;
     margin-left: 12px;
     padding-right: 5px;
+    margin-bottom: 15px;
+}
+
+.google-map {
+    text-decoration: none;
+    color: #0073BB;
 }
 
 .price-range {
@@ -80,7 +93,6 @@
 
 .business-direction {
     font-family: sans-serif;
-    color: #0073BB;
 }
 
 .write-add {
@@ -178,6 +190,7 @@
 
 .amen-header {
     font-weight: bold;
+    font-size: 20px;
 }
 
 .amentities-top {
@@ -198,5 +211,20 @@
     margin-right: 25px;
 }
 
+.footer {
+    display: flex;
+    justify-content: flex-end;
+}
 
+.review-header {
+    font-weight: bold;
+    font-size: 19px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.review-page {
+    font-size: 15px;
+    margin-bottom: 10px;
+}
 

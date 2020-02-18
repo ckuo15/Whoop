@@ -3,6 +3,8 @@ import { withRouter } from "react-router-dom";
 import NavBarContainer from "../nav/navbar_container";
 import BusinessShowCSS from "../../stylesheets/business_show.css";
 import MapIndex from "../map/map_index";
+import ReviewContainer from "../review/review_container";
+
 
 class BusinessShow extends React.Component {
   constructor(props){
@@ -115,17 +117,17 @@ class BusinessShow extends React.Component {
                   <div className="amentities-top">
                     <p>
                       <span>
-                        <i class="fas fa-parking"></i>
+                        <i className="fas fa-parking"></i>
                       </span>
                       <span> Parking Street </span> Yes
                     </p>
                     <p>
-                      <i class="far fa-credit-card"></i>&nbsp; Accepts Credit Cards &nbsp;&nbsp;<span>Yes</span>
+                      <i className="far fa-credit-card"></i>&nbsp; Accepts Credit Cards &nbsp;&nbsp;<span>Yes</span>
                     </p>
                   </div>
                   <div className="amentities-bottom">
                     <p>
-                        <i class="fas fa-wifi"></i>&nbsp;Wi-Fi&nbsp;&nbsp;<span>Yes</span>
+                        <i className="fas fa-wifi"></i>&nbsp;Wi-Fi&nbsp;&nbsp;<span>Yes</span>
                     </p>
                     <p>
                       <i className="fas fa-truck"></i>Delivery&nbsp;&nbsp;
@@ -133,14 +135,19 @@ class BusinessShow extends React.Component {
                     </p>
                   </div>
                 </div>
+                <p className="review-header">Recommended Reviews</p>
+                <ReviewContainer businessId={this.props.businessId} />
+                 <p className="review-page">Page 1 of 1</p>
               </div>
               <div className="right-side">
-                <p className="business-number">
-                  <i className="fas fa-phone-alt"></i> {phone}
-                </p>
-                <p className="business-direction">
-                  <i className="fas fa-directions"></i>Get Directions
-                </p>
+                <div className="right-sticky">
+                  <p className="business-number">
+                    <i className="fas fa-phone-alt"></i> {phone}
+                  </p>
+                  <p className="business-direction">
+                    <a href="https://www.google.com/maps/" className="google-map"><i className="fas fa-directions"></i>Get Directions</a>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
