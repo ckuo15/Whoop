@@ -24,6 +24,7 @@ class BusinessUpload extends React.Component {
   }
 
   render() {
+    const businessURL = `/#/businesses/${this.props.businessId}`
     return (
       <div className="business-upload-container">
         <NavBarContainer />
@@ -31,10 +32,10 @@ class BusinessUpload extends React.Component {
           <div className="business-upload-centering-div">
             <div className="business-upload-text-container">
               <div className="business-upload-add-photo-text">
-                <a href="#">Business title:</a>
+                <a href={businessURL}>Business title:</a>
                 <span> Add Photos</span>
               </div>
-              <a href="#">View all photos</a>
+              <a href={businessURL}>View all photos</a>
             </div>
             <div className="business-file-upload-container">
               <h1>Upload your photos here</h1>
