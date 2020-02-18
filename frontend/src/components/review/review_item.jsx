@@ -27,7 +27,6 @@ class ReviewItem extends React.Component {
                             </div>
                             <div className="review-content">
                                 <p className="review-body">{this.props.review.body}</p>
-                                <img className="review-image" src="/static/images/review-image.png" />
                             </div>
                         </div>
                     </div>

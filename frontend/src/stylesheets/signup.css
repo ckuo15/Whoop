@@ -27,7 +27,6 @@
 
 .signup-page {
     font-family: sans-serif;
-
 }
 
 .signup-form-container {
@@ -77,11 +76,11 @@
 
 .icon-image {
     height: 150px;
-    width: 260px;
+    width: 300px;
 }
 
-.left-side {
-   width: 300px;
+.signup-left-side {
+   width: 200px;
 }
 
 .username {
@@ -118,8 +117,9 @@
 }
 
 .form-image {
-    height: 400px;
-    width: 430px;
+    height: 430px;
+    width: 450px;
+    margin-left: 80px;
 }
 
 .marketing {
@@ -162,5 +162,26 @@
 
 .bottom {
     background: #f5f5f5;
+}
+
+.demo-login-button-signup {
+  background: rgb(99, 202, 14);
+  padding: 10px 13px;  
+  color: #fff;
+  border: 1px solid rgb(99, 202, 14);
+  width: 265px;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+  user-select: none;
+  font-size: 18px;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  height: 41px;
 }
 
