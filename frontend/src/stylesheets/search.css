@@ -1,5 +1,4 @@
-.navbar {
-}
+
 
 .search-container {
     font-family: 'Fira Sans', sans-serif;    
@@ -39,7 +38,11 @@
   align-items: flex-start;
   justify-content: flex-start;
   cursor: pointer;
+<<<<<<< HEAD
   width: 96;
+=======
+  width: 96%;
+>>>>>>> master
 }
 
 .store:hover {
@@ -106,6 +109,7 @@
   content: '';
   z-index: 5;
 }
+
 .search-map-container:before {
   top: -5px;
   left: 0;
@@ -146,4 +150,5 @@
   font-family: 'Fira Sans', sans-serif;
   border-bottom: 1px solid #E0E0E0;
   height: 130px;
+  z-index: 1000;
 }

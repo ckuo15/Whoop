@@ -58,7 +58,8 @@
     background: white;
     -moz-box-shadow:    10px 3px 10px 3px rgb(235, 235, 235);
     -webkit-box-shadow: 10px 3px 10px 3px rgb(235, 235, 235);
-    box-shadow:         10px 3px 10px 3px rgb(235, 235, 235);   
+    box-shadow:         10px 3px 10px 3px rgb(235, 235, 235);
+    width: 11%;   
 }
 
 .business-number {

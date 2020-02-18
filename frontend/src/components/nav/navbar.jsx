@@ -56,9 +56,11 @@ class NavBar extends React.Component {
                                         {this.props.user.username}
                                     </span>
                                 </div>
-                                <span onClick={this.props.logout} className="logout-drop">
-                                    Log Out
-                                </span>
+                                <div className="nav-logout-drop">
+                                    <span onClick={this.props.logout} className="logout-drop">
+                                        Log Out
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>

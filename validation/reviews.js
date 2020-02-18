@@ -10,8 +10,8 @@ module.exports = function validateReviewInput(data){
     if (Validator.isEmpty(data.body)){
         errors.body = 'Review cannot be empty'
     }
-    if (!Validator.isLength(data.body, {min: 1, max: 1000 })){
-        errors.text = 'Review must be between 1 and 1000 characters'
+    if (!Validator.isLength(data.body, {min: 1, max: 3000 })){
+        errors.text = 'Review must be between 1 and 3000 characters'
     }
     
     return {

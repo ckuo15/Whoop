@@ -17,6 +17,14 @@ const validLoginInput = require('../../validation/login');
 //     });
 // });
 
+router.get('/', (req,res) => {
+  console.log(req.body);
+  User.find().then(users => {
+    res.json(users)
+  }).catch(err => res.status(404).json({ nousersfound: 'No users found' }))
+
+});
+
 router.post('/signup', (req, res) => {
     console.log(req.body);
     const { errors, isValid } = validateRegisterInput(req.body);
