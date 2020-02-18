@@ -89,3 +89,60 @@
 .store-city {
   color: #757280;
 }
+
+.search-map-container {
+  width: 50vw;
+  height: 86vh;
+  position: fixed;
+  overflow: hidden;
+  left: 52.8%;
+}
+
+.search-map-container:before, .search-map-container:after, .map:before, .map:after {
+  position: absolute;
+  display: block;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  content: '';
+  z-index: 5;
+}
+.search-map-container:before {
+  top: -5px;
+  left: 0;
+  right: 0;
+  height: 5px;
+}
+.search-map-container:after {
+  left: -5px;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+}
+.map:before{
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  height: 5px;
+}
+.map:after{
+  left: -5px;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+}
+#map {
+  width: inherit;
+  height: inherit;
+}
+
+.search-navbar {
+  position: fixed;
+  background-color: white;
+  top: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-family: 'Fira Sans', sans-serif;
+  border-bottom: 1px solid #E0E0E0;
+  height: 130px;
+}

@@ -20,6 +20,7 @@ class BusinessUpload extends React.Component {
     photoFile.append('uploader', `${this.props.userId}`) // Append the userId to the req.body as uploader since user ID is required in our schema
     addBusinessPhoto(this.props.businessId, photoFile) // Dispatch our action 
     this.props.history.push(`/businesses/${this.props.businessId}`) // Redirect back to business show page
+    window.location.reload();
   }
 
   render() {

@@ -34,7 +34,6 @@ router.post('/',(req, res) => {
     if (!isValid) {
         return res.status(400).json(errors);
     }
-    console.log(req.body.owner);
     const newBusiness = new Business({
         name: req.body.name,
         owner: req.body.owner,
@@ -46,7 +45,6 @@ router.post('/',(req, res) => {
 });
 
 router.post('/:business_id/upload', upload.single('photoFile'), (req, res) => {
-    console.log(req.file);
     const s3 = new AWS.S3({
         accessKeyId: awsAccessID,
         secretAccessKey: awsSecretKey
@@ -69,6 +67,12 @@ router.post('/:business_id/upload', upload.single('photoFile'), (req, res) => {
         uploader: req.body.uploader,
         photoURL: ObjectUrl
     }).save().then(businessPhoto => res.json(businessPhoto)).catch(err => res.status(422).json(err));
+});
+
+router.get('/:business_id/photos', (req, res) => {
+    BusinessPhoto.find({ business: req.params.business_id })
+        .then(businessPhotos => res.json(businessPhotos))
+        .catch(err => res.status(404).json({ nobusinessphotosfound: 'No business photos'}))
 });
 
 

@@ -79,8 +79,11 @@ class NavBar extends React.Component {
     }
 
     render() {
+        let navClass;
+        this.props.search !== undefined ? navClass = 'search-navbar' : navClass = 'navbar'
+
         return (
-            <div onClick={this.closeDisplay} className='navbar'>
+            <div onClick={this.closeDisplay} className={navClass}>
                 <Link to={'/'}><img height="150" width="250" className="nav-icon" src="/static/images/whooplogo.png" /></Link>
                 <BusinessSearch isMainPage={false} />
                 {this.getLinks()}

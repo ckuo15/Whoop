@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import NavBarContainer from "../nav/navbar_container";
 import BusinessShowCSS from "../../stylesheets/business_show.css";
 import MapIndex from "../map/map_index";
+import BusinessShowPhotos from './business_show_photos';
 import ReviewContainer from "../review/review_container";
 
 
@@ -10,8 +11,21 @@ class BusinessShow extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      businessData: {}
+      businessData: {},
+      testImages: [
+        "https://s3-media0.fl.yelpcdn.com/bphoto/UzrNIkdGTZ1-cXuQDsKUmA/o.jpg",
+        "https://s3-media0.fl.yelpcdn.com/bphoto/Gb2XQgCm_Nz1uHMl8CuhuQ/o.jpg",
+        "https://s3-media0.fl.yelpcdn.com/bphoto/5SCcuSSC7_ivmRFR3i_l5A/o.jpg",
+        "https://s3-media0.fl.yelpcdn.com/bphoto/L86ElZwBriULwCqaemB5gw/o.jpg",
+        "https://s3-media0.fl.yelpcdn.com/bphoto/VzVjR_JpC2Rr3DnuNvwePg/o.jpg",
+        "https://s3-media0.fl.yelpcdn.com/bphoto/59C7YiFTPLBCiIZsqRUAGA/o.jpg",
+        "https://s3-media0.fl.yelpcdn.com/bphoto/OZt17s2S0T_Fr_Haw-N8sA/o.jpg",
+        "https://s3-media0.fl.yelpcdn.com/bphoto/px4ZjOgY51ZUEimUnIGJGA/o.jpg",
+      ],
+      businessPhotos: []
     };
+
+    this.plusSlides = this.plusSlides.bind(this);
   }
 
   componentDidMount() {
@@ -20,9 +34,30 @@ class BusinessShow extends React.Component {
       .then(businessData => 
         this.setState({ businessData: businessData.business.data })
       );
+
+    this.props.fetchBusinessPhotos(this.props.businessId)
+      .then(businessPhotos => 
+        this.setState({ businessPhotos: businessPhotos.businessPhotos.data})
+      );
   }
 
+  plusSlides(e) {
+    let images = this.state.businessPhotos;
+    if (e.target.className === 'next') {
+      for (let i = 0; i < 4; i++) {
+        images.push(images.shift());
+      };
+      this.setState({ businessPhotos: images });
+    } else {
+      for (let i = 4; i > 0; i--) {
+        images.unshift(images.pop());
+      };
+      this.setState({ businessPhotos: images });
+    };
+  };
+
   render() {
+    console.log(this.state.businessPhotos)
     const style = {
       width: "28vw",
       height: "36vh"
@@ -40,11 +75,19 @@ class BusinessShow extends React.Component {
     } = this.state.businessData;
 
     return (
-      <div>
+      <div className="business-show-container">
         <NavBarContainer />
         <div className="middle">
           <div className="images">
-            <img className="yelp-images" src="/static/images/yelp-images.png" />
+            <ul className="business-show-ul">
+              <div className="business-show-prev-container">
+                <a className="prev" onClick={this.plusSlides}>&#10094;</a>
+              </div>
+              {this.state.businessPhotos.slice(0, 4).map(photoData => <BusinessShowPhotos key={photoData._id} photo={photoData.photoURL} date={photoData.date}/>)}
+              <div className="business-show-next-container">
+                <a className="next" onClick={this.plusSlides}>&#10095;</a>
+              </div>
+            </ul>
           </div>
           <div>
             <div className="business-info">

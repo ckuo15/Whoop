@@ -1,25 +1,13 @@
-// const mongoose = require('mongoose');
-// const db = require('./keys').mongoURI;
-// const Category = require('../models/Category');
-// const User = require('../models/User');
-// const Business = require('../models/Business');
+const mongoose = require('mongoose');
+const db = require('./keys').mongoURI;
+const Category = require('../models/Category');
+const User = require('../models/User');
+const Business = require('../models/Business');
 
-// mongoose
-//   .connect(db, { useNewUrlParser: true })
-//   .then(() => console.log("Seeded successfully"))
-//   .catch(err => console.log(err));
-
-// new User({
-//   username: "username",
-//   email: "username@email.com",
-//   password: "hunter12"
-// }).save();
-
-// new User({
-//   username: "sloth123",
-//   email: "sloth123@gmail.com",
-//   password: "hunter12"
-// }).save();
+mongoose
+  .connect(db, { useNewUrlParser: true })
+  .then(() => console.log("Seeded successfully"))
+  .catch(err => console.log(err));
 
 // new Category({ title: "Restaurants" }).save();
 // new Category({ title: "Shopping" }).save();
@@ -30,7 +18,7 @@
 // new Category({ title: "Home Services" }).save();
 
 
-// // restaurants 
+// restaurants 
 // const the_house_hours = {
 //   mon: "11:30 am - 10:00 pm",
 //   tue: "11:30 am - 10:00 pm",
@@ -916,3 +904,36 @@
 //   phone: "(415)932-1942",
 //   price_range: '$'
 // }).save();
+
+
+// new User({ // Don't create a new user though since it'll save password to db instead of pw hash, just an example to show how the function works
+//   username: 'new_user',
+//   email: 'guy@gmail.com',
+//   password: 'hunter12'
+// }).save(function(err, user) {
+//   console.log(user.id)
+// });
+
+
+// -- Proper way of doing references with seeds file --
+// new Group({
+//   title: "absolutely utmost newest Seed",
+//   desc: "seed desc",
+//   location: "online",
+//   organizer: "Seed master"
+// }).save()
+//   .then(group => {
+//     new Event({
+//       title: "seed event",
+//       desc: "seed event description",
+//       location: "soil",
+//       group_id: group._id,
+//       event_start: "2020-03-01",
+//       event_end: new Date("December 15, 2021")
+//     }).save()
+//       .then(event => {
+//         group.events.push(event._id)
+//         group.save()
+//       })
+//   }).then(console.log("done seeding"))
+
