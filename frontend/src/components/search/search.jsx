@@ -21,6 +21,8 @@ class Search extends React.Component {
         return this.setState({ stores: stores.businesses.data })
       })
       .catch(err => console.log("No businesses to display"))
+
+    
   }
 
   fetchCategoryId() {
@@ -37,7 +39,7 @@ class Search extends React.Component {
       return "5e449188acf32d81822aa764";
     } else if (['auto', 'cars', 'mechanic', 'automotive', 'car', 'body shop', 'mufflers', 'paintjob'].includes(businesses.toLowerCase())) {
       return "5e449188acf32d81822aa766";
-    } else if (['cleaning', 'handyman', 'home services', 'home', 'home repairs', 'repairman', 'water heater', 'air conditioning'].includes(businesses.toLowerCase())) {
+    } else if (['cleaning', 'handyman', 'home services', 'home', 'home repairs', 'repairman', 'water heater', 'air conditioning', 'homeservices'].includes(businesses.toLowerCase())) {
       return "5e449188acf32d81822aa767";
     }
   }
@@ -58,7 +60,7 @@ class Search extends React.Component {
             <div className="search-results">
               <p className="all-results">All Results</p>
               <ul>
-                {this.state.stores.map(store => <SearchItem key={store._id} store={store} history={this.props.history}/>)}
+                {this.state.stores.map(store => <SearchItem key={store._id} store={store} history={this.props.history} fetchPhotos={this.props.fetchBusinessPhotos.bind(this)}/>)}
               </ul>
             </div>
           </div>

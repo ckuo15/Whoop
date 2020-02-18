@@ -114,16 +114,16 @@ class Splash extends React.Component {
           </a>
           <BusinessSearch isMainPage={true} />
           <div className="top-category">
-            <span className="wrench">
+            <span className="wrench" data-business="homeservices" onClick={this.redirectToSearch}>
               <i className="fas fa-wrench"></i> Plumbers
             </span>
-            <span className="utensils">
+            <span className="utensils" data-business="restaurants" onClick={this.redirectToSearch}>
               <i className="fas fa-utensils"></i> Restaurants
             </span>
-            <span className="home-icon">
+            <span className="home-icon" data-business="homeservices" onClick={this.redirectToSearch}>
               <i className="fas fa-home"></i> Home Services
             </span>
-            <span className="delivery">
+            <span className="delivery" data-business="restaurants" onClick={this.redirectToSearch}>
               <i className="fas fa-truck"></i> Delivery
             </span>
           </div>
