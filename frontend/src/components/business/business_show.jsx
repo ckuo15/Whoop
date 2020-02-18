@@ -12,6 +12,16 @@ class BusinessShow extends React.Component {
     super(props)
     this.state = {
       businessData: {},
+      testImages: [
+        "https://s3-media0.fl.yelpcdn.com/bphoto/UzrNIkdGTZ1-cXuQDsKUmA/o.jpg",
+        "https://s3-media0.fl.yelpcdn.com/bphoto/Gb2XQgCm_Nz1uHMl8CuhuQ/o.jpg",
+        "https://s3-media0.fl.yelpcdn.com/bphoto/5SCcuSSC7_ivmRFR3i_l5A/o.jpg",
+        "https://s3-media0.fl.yelpcdn.com/bphoto/L86ElZwBriULwCqaemB5gw/o.jpg",
+        "https://s3-media0.fl.yelpcdn.com/bphoto/VzVjR_JpC2Rr3DnuNvwePg/o.jpg",
+        "https://s3-media0.fl.yelpcdn.com/bphoto/59C7YiFTPLBCiIZsqRUAGA/o.jpg",
+        "https://s3-media0.fl.yelpcdn.com/bphoto/OZt17s2S0T_Fr_Haw-N8sA/o.jpg",
+        "https://s3-media0.fl.yelpcdn.com/bphoto/px4ZjOgY51ZUEimUnIGJGA/o.jpg",
+      ],
       businessPhotos: []
     };
 
@@ -47,6 +57,7 @@ class BusinessShow extends React.Component {
   };
 
   render() {
+    console.log(this.state.businessPhotos)
     const style = {
       width: "28vw",
       height: "36vh"
@@ -72,7 +83,7 @@ class BusinessShow extends React.Component {
               <div className="business-show-prev-container">
                 <a className="prev" onClick={this.plusSlides}>&#10094;</a>
               </div>
-              {this.state.businessPhotos.slice(0, 4).map(photoData => <BusinessShowPhotos photoD={photoData} photo={photoData.photoURL} date={photoData.date} allPhotos={this.state.businessPhotos} business={this.props.business.name} />)}
+              {this.state.businessPhotos.slice(0, 4).map(photoData => <BusinessShowPhotos key={photoData._id} photo={photoData.photoURL} date={photoData.date}/>)}
               <div className="business-show-next-container">
                 <a className="next" onClick={this.plusSlides}>&#10095;</a>
               </div>

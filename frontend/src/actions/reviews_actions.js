@@ -9,6 +9,7 @@ export const receiveReviews = reviews => ({
     reviews
 });
 
+
 export const receiveBusinessReviews = reviews => ({
     type: RECEIVE_BUSINESS_REVIEWS,
     reviews
