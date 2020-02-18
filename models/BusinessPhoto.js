@@ -12,6 +12,10 @@ const BusinessPhotoSchema = new Schema({
     ref: "user",
     required: true
   },
+  uploaderUsername: {
+    type: "String",
+    required: true
+  },
   photoURL: {
     type: String,
     required: true
