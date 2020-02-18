@@ -39,6 +39,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   cursor: pointer;
+  width: 96;
 }
 
 .store:hover {
