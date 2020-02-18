@@ -442,15 +442,21 @@
 .show-right-photos {
     height: 35%;
     margin: 10px;
+    max-height: 207px;
 }
 
 .show-right-photos > img {
     height: 100%;
     width: 100%;
+    border-radius: 7px;
 }
 
 .show-right-photos-selected {
     border-radius: 7px;
     border: 3px solid #0097EC;
     opacity: 0.5;
+}
+
+.show-picture-holder {
+    display: block;
 }
