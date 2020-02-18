@@ -8,6 +8,7 @@ import SplashContainer from './splash/splash_container';
 import BusinessSearchContainer from './business/business_show_container';
 import SearchContainer from './search/search_container';
 import BusinessUploadContainer from './business/business_upload_container';
+import BusinessReviewContainer from './business/business_review_container';
 
 
 const App = (props) => {
@@ -20,6 +21,7 @@ const App = (props) => {
       <Route exact path="/" component={SplashContainer} />
       <Route exact path="/businesses/:business_id" component={BusinessSearchContainer} />
       <ProtectedRoute path="/businesses/:business_id/upload" component={BusinessUploadContainer} />
+      <ProtectedRoute path="/businesses/:business_id/writereview" component={BusinessReviewContainer}/>
     </Switch>
   </div>
   )

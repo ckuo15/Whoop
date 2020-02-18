@@ -18,7 +18,7 @@ router.post('/', (req, res) => {
     const newReview = new Review({
         author: req.body.author,
         body: req.body.body,
-        business: req.body.business,
+        business: req.body.businessId,
         photo: req.body.photo,
         username: req.body.username
     })

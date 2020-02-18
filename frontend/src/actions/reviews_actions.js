@@ -3,6 +3,8 @@ import * as ReviewAPIUtil from "../util/reviews_api_util";
 
 export const RECEIVE_BUSINESS_REVIEWS = 'RECEIVE_BUSINESS_REVIEWS';
 export const RECEIVE_REVIEWS = 'RECEIVE_REVIEWS';
+export const RECEIVE_BUSINESS_REVIEW = 'RECEIVE_BUSINESS_REVIEW';
+
 
 export const receiveReviews = reviews => ({
     type: RECEIVE_REVIEWS,
@@ -12,6 +14,11 @@ export const receiveReviews = reviews => ({
 export const receiveBusinessReviews = reviews => ({
     type: RECEIVE_BUSINESS_REVIEWS,
     reviews
+});
+
+export const receiveBusinessReview = review => ({
+    type: RECEIVE_BUSINESS_REVIEW,
+    review
 });
 
 export const fetchReviews = () => dispatch => (
@@ -27,3 +34,10 @@ export const fetchBusinessReviews = businessId => dispatch => {
             .catch(err => console.log(err))
     )
 };
+
+export const addBusinessReview = review => dispatch => (
+    ReviewAPIUtil.addBusinessReview(review).then(businessReview => (
+        dispatch(receiveBusinessReview(businessReview))
+    ))
+);
+
