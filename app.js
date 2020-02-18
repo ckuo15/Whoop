@@ -12,7 +12,6 @@ const categories = require("./routes/api/categories");
 const uploads = require("./routes/api/uploads"); // Requires AWS uploads file we made
 const reviews = require("./routes/api/reviews");
 
-app.get("/", (req, res) => res.send("<iframe width='560' height='315' src='https://www.youtube.com/embed/4vaN01VLYSQ' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
