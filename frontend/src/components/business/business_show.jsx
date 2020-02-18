@@ -99,9 +99,9 @@ class BusinessShow extends React.Component {
                 />
                 <p className="price-range"> {price_range}</p>
                 <div className="write-add">
-                  <p className="write-review">
+                  <button className="add-review" onClick={() => this.props.history.push(`/businesses/${this.props.businessId}/writereview`)}>
                     <i className="fas fa-star"></i>Write a Review
-                  </p>
+                  </button>
                   <button className="add-photo" onClick={() => this.props.history.push(`/businesses/${this.props.businessId}/upload`)}>
                     <i className="fas fa-camera"></i>Add Photo
                   </button>

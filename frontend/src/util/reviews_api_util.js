@@ -7,3 +7,7 @@ export const fetchReviews = () => {
 export const fetchReview = businessId => {
     return axios.get(`api/reviews/${businessId}/reviews`)
 };
+
+export const addBusinessReview = review => {
+    return axios.post(`/api/reviews/`, review);
+};

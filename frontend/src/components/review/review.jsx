@@ -17,6 +17,13 @@ class Review extends React.Component {
             })
     };
 
+    componentDidUpdate() {
+        this.props.fetchBusinessReviews(this.props.businessId)
+            .then(reviews => {
+                return this.setState({ businessReviews: reviews.reviews.data })
+            })
+    };
+
     render() {
         console.log(this.props.businessReviews);
         return (
