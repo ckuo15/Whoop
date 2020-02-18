@@ -72,7 +72,7 @@ class BusinessShow extends React.Component {
               <div className="business-show-prev-container">
                 <a className="prev" onClick={this.plusSlides}>&#10094;</a>
               </div>
-              {this.state.businessPhotos.slice(0, 4).map(photoData => <BusinessShowPhotos key={photoData._id} photo={photoData.photoURL} date={photoData.date} allPhotos={this.state.businessPhotos} business={this.props.business.name} />)}
+              {this.state.businessPhotos.slice(0, 4).map(photoData => <BusinessShowPhotos photoD={photoData} photo={photoData.photoURL} date={photoData.date} allPhotos={this.state.businessPhotos} business={this.props.business.name} />)}
               <div className="business-show-next-container">
                 <a className="next" onClick={this.plusSlides}>&#10095;</a>
               </div>

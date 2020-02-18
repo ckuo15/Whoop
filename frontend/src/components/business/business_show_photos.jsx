@@ -7,14 +7,23 @@ class BusinessShowPhotos extends React.Component {
 
     this.state = {
       showModal: false,
-      modalPhoto: ""
+      modalPhoto: "",
+      selectedPhoto: ''
     };
 
     this.showModal = this.showModal.bind(this);
   }
 
   showModal(event) {
-    this.setState({ showModal: true, modalPhoto: event.target.src })
+    this.setState({ showModal: true, modalPhoto: event.target.src, selectedPhoto: event.target.dataset.key })
+
+    // if (this.state.selectedPhoto !== undefined) {
+      let selected = document.getElementsByClassName('show-right-photos-selected')
+      if (selected.length > 0) {
+        selected[0].className = '';
+      }
+      event.target.className = 'show-right-photos-selected';
+    // }
 
     const container = document.getElementsByClassName('business-show-container')
     if (container.length > 0) {
@@ -48,16 +57,17 @@ class BusinessShowPhotos extends React.Component {
                 <h1>Photos for {this.props.business}</h1>
               </div>
                 <ul className="show-right-photos-list">
-                {this.props.allPhotos.map(photo => <li className="show-right-photos" key={photo._id}><img src={photo.photoURL} alt="photo-img" onClick={this.showModal} /></li>)}
+                {this.props.allPhotos.map(photo => <li className="show-right-photos" key={photo._id}><img src={photo.photoURL} data-key={photo._id} alt="photo-img" onClick={this.showModal} /></li>)}
                 </ul>
             </div>
           </div>
         </div>
       </div>
     )
+
     return (
       <li className="business-show-photo-li">
-        <img className="business-show-photo-img" src={this.props.photo} onClick={this.showModal}/>
+        <img className="business-show-photo-img" data-key={this.props.photoD._id} src={this.props.photo} onClick={this.showModal}/>
         { this.state.showModal ? postModal : null } 
       </li>
     )
