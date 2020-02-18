@@ -272,3 +272,113 @@
     color: white;
 }
 
+.show-full-modal-container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(51, 51, 51, 0.651);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.show-close-container {
+    position: relative;
+    top: 0;
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+    font-family: sans-serif;
+    height: 3.3%;
+    align-items: flex-end;
+}
+
+.close-modal-text {
+    display: flex;
+    height: 60%;
+    align-items: center;
+    justify-content: space-around;
+    width: 60px;
+    cursor: pointer;
+    margin-bottom: 4px;
+}
+
+.close-modal-text > h3 {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.close-modal-text > h3:hover {
+    text-decoration: underline;
+}
+
+.close-modal-text > span {
+    font-size: 19px;
+    margin-top: 7px;
+}
+
+.show-inner-modal-text-container {
+    position: absolute;
+    height: 100%;
+    width: 1300px;
+}
+
+.show-inner-modal-container {
+    background-color: black;
+    height: 855px;
+    border-radius: 7px;
+    display: flex;
+}
+
+.business-show-container-hidden {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.show-left-picture-container {
+    height: 100%;
+    width: 72%;
+    overflow: hidden;
+}
+
+.show-left-picture-container > img {
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+}
+
+.show-left-text-container {
+    background-color: rgba(0, 0, 0, 0.66);
+    position: relative;
+    bottom: 126px;
+    height: 123px;
+    border-radius: 0px 0px 0px 7px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.left-text-container-positioning {
+    height: 85%;
+    margin: 12px;
+}
+
+.left-text-container-positioning > p {
+    color: rgb(198, 198, 198);
+    font-size: 13px;
+    font-family: sans-serif;
+    /* margin: 10px; */
+}
+
+.left-text-container-positioning > div {
+    border-bottom: 1px solid white;
+}
+
+.left-text-container-positioning > h3 {
+    color: white;
+    font-size: 15px;
+    font-family: sans-serif;
+}

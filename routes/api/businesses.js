@@ -69,6 +69,12 @@ router.post('/:business_id/upload', upload.single('photoFile'), (req, res) => {
     }).save().then(businessPhoto => res.json(businessPhoto)).catch(err => res.status(422).json(err));
 });
 
+router.get('/:business_id/photos', (req, res) => {
+    BusinessPhoto.find({ business: req.params.business_id })
+        .then(businessPhotos => res.json(businessPhotos))
+        .catch(err => res.status(404).json({ nobusinessphotosfound: 'No business photos'}))
+});
+
 
 // , passport.authenticate('jwt', { session: false }
 

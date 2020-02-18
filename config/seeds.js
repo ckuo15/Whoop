@@ -9,18 +9,6 @@ mongoose
   .then(() => console.log("Seeded successfully"))
   .catch(err => console.log(err));
 
-// new User({
-//   username: "username",
-//   email: "username@email.com",
-//   password: "hunter12"
-// }).save();
-
-// new User({
-//   username: "sloth123",
-//   email: "sloth123@gmail.com",
-//   password: "hunter12"
-// }).save();
-
 // new Category({ title: "Restaurants" }).save();
 // new Category({ title: "Shopping" }).save();
 // new Category({ title: "Nightlife" }).save();
@@ -918,10 +906,34 @@ mongoose
 // }).save();
 
 
-// new User({
+// new User({ // Don't create a new user though since it'll save password to db instead of pw hash, just an example to show how the function works
 //   username: 'new_user',
 //   email: 'guy@gmail.com',
 //   password: 'hunter12'
 // }).save(function(err, user) {
 //   console.log(user.id)
 // });
+
+
+// -- Proper way of doing references with seeds file --
+// new Group({
+//   title: "absolutely utmost newest Seed",
+//   desc: "seed desc",
+//   location: "online",
+//   organizer: "Seed master"
+// }).save()
+//   .then(group => {
+//     new Event({
+//       title: "seed event",
+//       desc: "seed event description",
+//       location: "soil",
+//       group_id: group._id,
+//       event_start: "2020-03-01",
+//       event_end: new Date("December 15, 2021")
+//     }).save()
+//       .then(event => {
+//         group.events.push(event._id)
+//         group.save()
+//       })
+//   }).then(console.log("done seeding"))
+

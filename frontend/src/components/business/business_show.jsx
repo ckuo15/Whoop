@@ -19,7 +19,8 @@ class BusinessShow extends React.Component {
         "https://s3-media0.fl.yelpcdn.com/bphoto/59C7YiFTPLBCiIZsqRUAGA/o.jpg",
         "https://s3-media0.fl.yelpcdn.com/bphoto/OZt17s2S0T_Fr_Haw-N8sA/o.jpg",
         "https://s3-media0.fl.yelpcdn.com/bphoto/px4ZjOgY51ZUEimUnIGJGA/o.jpg",
-      ]
+      ],
+      businessPhotos: []
     };
 
     this.plusSlides = this.plusSlides.bind(this);
@@ -31,24 +32,30 @@ class BusinessShow extends React.Component {
       .then(businessData => 
         this.setState({ businessData: businessData.business.data })
       );
+
+    this.props.fetchBusinessPhotos(this.props.businessId)
+      .then(businessPhotos => 
+        this.setState({ businessPhotos: businessPhotos.businessPhotos.data})
+      );
   }
 
   plusSlides(e) {
-    let images = this.state.testImages;
+    let images = this.state.businessPhotos;
     if (e.target.className === 'next') {
       for (let i = 0; i < 4; i++) {
         images.push(images.shift());
       };
-      this.setState({ testImages: images });
+      this.setState({ businessPhotos: images });
     } else {
       for (let i = 4; i > 0; i--) {
         images.unshift(images.pop());
       };
-      this.setState({ testImages: images });
+      this.setState({ businessPhotos: images });
     };
   };
 
   render() {
+    console.log(this.state.businessPhotos)
     const style = {
       width: "28vw",
       height: "36vh"
@@ -70,12 +77,11 @@ class BusinessShow extends React.Component {
         <NavBarContainer />
         <div className="middle">
           <div className="images">
-            {/* <img className="yelp-images" src="/static/images/yelp-images.png" /> */}
             <ul className="business-show-ul">
               <div className="business-show-prev-container">
                 <a className="prev" onClick={this.plusSlides}>&#10094;</a>
               </div>
-              {this.state.testImages.slice(0, 4).map(img => <BusinessShowPhotos src={img}/>)}
+              {this.state.businessPhotos.slice(0, 4).map(photoData => <BusinessShowPhotos key={photoData._id} photo={photoData.photoURL} date={photoData.date}/>)}
               <div className="business-show-next-container">
                 <a className="next" onClick={this.plusSlides}>&#10095;</a>
               </div>
@@ -104,10 +110,10 @@ class BusinessShow extends React.Component {
                       <p>Location & Hours</p>
                     </div>
                     <div className="map-info">
-                      {/* <MapIndex
+                      <MapIndex
                         style={style}
                         stores={[this.state.businessData]}
-                      /> */}
+                      />
                       <p className="address">{address}</p>
                       <p className="city">
                         {city}, {state} {zipcode}
@@ -152,17 +158,17 @@ class BusinessShow extends React.Component {
                   <div className="amentities-top">
                     <p>
                       <span>
-                        <i class="fas fa-parking"></i>
+                        <i className="fas fa-parking"></i>
                       </span>
                       <span> Parking Street </span> Yes
                     </p>
                     <p>
-                      <i class="far fa-credit-card"></i>&nbsp; Accepts Credit Cards &nbsp;&nbsp;<span>Yes</span>
+                      <i className="far fa-credit-card"></i>&nbsp; Accepts Credit Cards &nbsp;&nbsp;<span>Yes</span>
                     </p>
                   </div>
                   <div className="amentities-bottom">
                     <p>
-                        <i class="fas fa-wifi"></i>&nbsp;Wi-Fi&nbsp;&nbsp;<span>Yes</span>
+                        <i className="fas fa-wifi"></i>&nbsp;Wi-Fi&nbsp;&nbsp;<span>Yes</span>
                     </p>
                     <p>
                       <i className="fas fa-truck"></i>Delivery&nbsp;&nbsp;
