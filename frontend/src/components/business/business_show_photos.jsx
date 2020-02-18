@@ -17,7 +17,6 @@ class BusinessShowPhotos extends React.Component {
     this.setState({ showModal: true, modalPhoto: event.target.src })
 
     const container = document.getElementsByClassName('business-show-container')
-
     if (container.length > 0) {
       container[0].className = 'business-show-container-hidden'
     }
@@ -49,7 +48,7 @@ class BusinessShowPhotos extends React.Component {
                 <h1>Photos for {this.props.business}</h1>
               </div>
                 <ul className="show-right-photos-list">
-                  {this.props.allPhotos.map(photo => <li className="show-right-photos" id={photo.photoURL} key={photo._id}><img src={photo.photoURL} alt="photo-img" onClick={this.showModal} /></li>)}
+                {this.props.allPhotos.map(photo => <li className="show-right-photos" key={photo._id}><img src={photo.photoURL} alt="photo-img" onClick={this.showModal} /></li>)}
                 </ul>
             </div>
           </div>
@@ -59,7 +58,7 @@ class BusinessShowPhotos extends React.Component {
     return (
       <li className="business-show-photo-li">
         <img className="business-show-photo-img" src={this.props.photo} onClick={this.showModal}/>
-        { this.state.showModal && postModal } 
+        { this.state.showModal ? postModal : null } 
       </li>
     )
   }
