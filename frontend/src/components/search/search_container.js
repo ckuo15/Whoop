@@ -4,7 +4,8 @@ import { fetchByCategory } from '../../actions/categories_actions';
 import { fetchBusiness, fetchBusinessPhotos } from "../../actions/businesses_actions";
 
 const mapStateToProps = (state, ownProps) => ({
-  businessId: ownProps.match.params.business_id
+  businessId: ownProps.match.params.business_id,
+  businessPhoto: state.business
 });
 
 const mapDispatchToProps = dispatch => ({

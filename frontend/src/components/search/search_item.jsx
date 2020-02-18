@@ -3,10 +3,24 @@ import React from "react";
 class SearchItem extends React.Component {
   constructor(props) {
     super(props)
+
+    this.state = {
+      photo: null
+    };
+  }
+
+  componentDidMount() {
+    this.props.fetchPhotos(this.props.store._id)
+      .then(photo => {
+        if (photo.businessPhotos.data.length > 0) {
+          return this.setState({ photo: photo.businessPhotos.data[0].photoURL})
+        } else {
+          return this.setState({ photo: "static/images/nobusinessphoto.png" })
+        }
+      })
   }
   
   render() {
-    console.log(this.props);
     return (
       <div className="stores" onClick={() => this.props.history.push(`/businesses/${this.props.store._id}`)}>
         <div className="store">
@@ -14,7 +28,7 @@ class SearchItem extends React.Component {
             <div className="store-picture">
               <img
                 className="business-pic"
-                src="/static/images/search-image.png"
+                src={this.state.photo}
               />
             </div>
             <div className="store-description">

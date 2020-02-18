@@ -21,6 +21,8 @@ class Search extends React.Component {
         return this.setState({ stores: stores.businesses.data })
       })
       .catch(err => console.log("No businesses to display"))
+
+    
   }
 
   fetchCategoryId() {
@@ -48,7 +50,7 @@ class Search extends React.Component {
       width: "50vw",
       height: "85.5vh"
     };
-console.log(this.props);
+
     return (
       <div className="search-container">
         <div className="navbar"><NavBarContainer search={true}/></div>
@@ -58,7 +60,7 @@ console.log(this.props);
             <div className="search-results">
               <p className="all-results">All Results</p>
               <ul>
-                {this.state.stores.map(store => <SearchItem key={store._id} store={store} history={this.props.history} />)}
+                {this.state.stores.map(store => <SearchItem key={store._id} store={store} history={this.props.history} fetchPhotos={this.props.fetchBusinessPhotos.bind(this)}/>)}
               </ul>
             </div>
           </div>
