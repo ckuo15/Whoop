@@ -12,6 +12,16 @@ class BusinessShow extends React.Component {
     super(props)
     this.state = {
       businessData: {},
+      testImages: [
+        "https://s3-media0.fl.yelpcdn.com/bphoto/UzrNIkdGTZ1-cXuQDsKUmA/o.jpg",
+        "https://s3-media0.fl.yelpcdn.com/bphoto/Gb2XQgCm_Nz1uHMl8CuhuQ/o.jpg",
+        "https://s3-media0.fl.yelpcdn.com/bphoto/5SCcuSSC7_ivmRFR3i_l5A/o.jpg",
+        "https://s3-media0.fl.yelpcdn.com/bphoto/L86ElZwBriULwCqaemB5gw/o.jpg",
+        "https://s3-media0.fl.yelpcdn.com/bphoto/VzVjR_JpC2Rr3DnuNvwePg/o.jpg",
+        "https://s3-media0.fl.yelpcdn.com/bphoto/59C7YiFTPLBCiIZsqRUAGA/o.jpg",
+        "https://s3-media0.fl.yelpcdn.com/bphoto/OZt17s2S0T_Fr_Haw-N8sA/o.jpg",
+        "https://s3-media0.fl.yelpcdn.com/bphoto/px4ZjOgY51ZUEimUnIGJGA/o.jpg",
+      ],
       businessPhotos: []
     };
 
@@ -47,6 +57,7 @@ class BusinessShow extends React.Component {
   };
 
   render() {
+    console.log(this.state.businessPhotos)
     const style = {
       width: "28vw",
       height: "36vh"
@@ -88,9 +99,9 @@ class BusinessShow extends React.Component {
                 />
                 <p className="price-range"> {price_range}</p>
                 <div className="write-add">
-                  <p className="write-review">
+                  <button className="add-review" onClick={() => this.props.history.push(`/businesses/${this.props.businessId}/writereview`)}>
                     <i className="fas fa-star"></i>Write a Review
-                  </p>
+                  </button>
                   <button className="add-photo" onClick={() => this.props.history.push(`/businesses/${this.props.businessId}/upload`)}>
                     <i className="fas fa-camera"></i>Add Photo
                   </button>

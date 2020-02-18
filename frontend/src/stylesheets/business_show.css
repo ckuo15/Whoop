@@ -103,13 +103,24 @@
     border-bottom: 1px solid #D6D6D6;
 }
 
-.write-review {
-    border: 1px solid #D6D6D6;
-    border-radius: 4px;
-    padding: 5px;
-    color: #D32322;
-    font-size: 14px;
-    font-weight: bold;
+/* .write-review {
+border: 1px solid #D6D6D6;
+border-radius: 4px;
+padding: 5px;
+color: #D32322;
+font-size: 14px;
+font-weight: bold;
+} */
+
+.add-review {
+text-decoration: none;
+border: 1px solid #D6D6D6;
+border-radius: 4px;
+padding: 5px;
+color: #D32322;
+font-size: 12px;
+font-weight: bold;
+cursor: pointer;
 }
 
 .add-photo {
