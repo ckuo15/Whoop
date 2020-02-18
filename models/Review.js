@@ -19,6 +19,10 @@ const ReviewSchema = new Schema({
   photo: {
     type: String
   },
+  username: {
+    type: String,
+    required: true
+  },
   date: {
     type: Date,
     default: Date.now

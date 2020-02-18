@@ -1,0 +1,59 @@
+.review-container {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #E6E6E6;
+}
+
+.review {
+    display: flex;
+}
+
+.review-left {
+    width: 30%;
+    display: flex;
+}
+
+.profile-pic {
+    height: 50px;
+    width: 50px;
+    padding-right: 10px;
+}
+
+.user-name {
+    color: #1B7ABF;
+    font-weight: bold;
+}
+
+.review-right {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+.stars-date {
+    display: flex;
+}
+
+.review-section-stars {
+    height: 20px;
+    width: 100px;
+    margin-top: 0;
+    margin-right: 10px;
+}
+
+.datecreated {
+    color: #7A7A7A;
+}
+
+.review-content {
+    margin-bottom: 20px;
+}
+
+.review-body {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.review-image {
+    height: 180px;
+    width: 260px;
+}

@@ -1,14 +1,20 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import ReviewItemContainer from "./review_item_container";
+import ReviewItem from "./review_item";
 
 class Review extends React.Component {
     constructor(props){
         super(props)
+        this.state = {
+            businessReviews: []
+        }
     }
 
     componentDidMount(){
         this.props.fetchBusinessReviews(this.props.businessId)
+            .then(reviews => {
+                return this.setState({businessReviews: reviews.reviews.data})
+            })
     };
 
     render() {
@@ -16,7 +22,7 @@ class Review extends React.Component {
         return (
             <div>
                 <ul>
-                    {/* {this.props.businessReviews.data.map(review => <ReviewItemContainer/>)} */}
+                    {this.state.businessReviews.map(review => <ReviewItem review={ review }/>)}
                 </ul>
             </div>
         )

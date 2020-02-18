@@ -19,7 +19,8 @@ router.post('/', (req, res) => {
         author: req.body.author,
         body: req.body.body,
         business: req.body.business,
-        photo: req.body.photo
+        photo: req.body.photo,
+        username: req.body.username
     })
 
     newReview.save().then(review => res.json(review)).catch(err => res.status(422).json(err));
