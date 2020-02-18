@@ -18,19 +18,25 @@ class BusinessShowPhotos extends React.Component {
   showModal(event) {
     this.setState({ showModal: true, modalPhoto: event.target.src, selectedPhoto: event.target.dataset.key })
 
-    let selected = document.getElementsByClassName('show-right-photos-selected')
-    if (selected.length > 0) {
-    }
-    event.target.className = 'show-right-photos-selected';
-
     const container = document.getElementsByClassName('business-show-container')
     if (container.length > 0) {
       container[0].className = 'business-show-container-hidden'
     }
   }
 
-  closeModal() {
-    this.setState({ showModal: false, modalPhoto: '', selectedPhoto: '' })
+  closeModal(event) {
+    if (event.target.className === 'show-full-modal-container' ||
+        event.target.className === 'show-close-container' ||
+        event.target.className === 'close-modal-text' ||
+        event.target.className === 'close-modal') {
+      this.setState({ showModal: false, modalPhoto: '', selectedPhoto: '' })
+      const container2 = document.getElementsByClassName(
+        "business-show-container-hidden"
+      );
+      if (container2.length > 0) {
+        container2[0].className = 'business-show-container'
+      }
+    }
   }
 
   render() {
@@ -38,10 +44,10 @@ class BusinessShowPhotos extends React.Component {
     let dateStr = date[1] + ", " + date[2] + " " + date[3];
 
     const postModal = (
-      <div className="show-full-modal-container">
+      <div className="show-full-modal-container" onClick={this.closeModal}>
         <div className="show-inner-modal-text-container">
           <div className="show-close-container">
-            <div className="close-modal-text"><h3>Close</h3><span>X</span></div>
+            <div className="close-modal-text"><h3 className="close-modal">Close</h3><span className="close-modal">X</span></div>
           </div>
           <div className="show-inner-modal-container">
             <div className="show-left-picture-container">
@@ -50,7 +56,7 @@ class BusinessShowPhotos extends React.Component {
                 <div className="left-text-container-positioning">
                   <p>{dateStr}</p>
                   <div className="show-left-divider-bar"></div>
-                  <h3>Username</h3>
+                  <h3>{this.props.uploader}</h3>
                 </div>
               </div>
             </div>
