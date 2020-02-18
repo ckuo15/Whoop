@@ -65,6 +65,7 @@ router.post('/:business_id/upload', upload.single('photoFile'), (req, res) => {
     new BusinessPhoto({ // Create a new entry in our database
         business: req.params.business_id,
         uploader: req.body.uploader,
+        uploaderUsername: req.body.uploaderUsername,
         photoURL: ObjectUrl
     }).save().then(businessPhoto => res.json(businessPhoto)).catch(err => res.status(422).json(err));
 });

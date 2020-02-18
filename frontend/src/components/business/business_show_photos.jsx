@@ -30,6 +30,12 @@ class BusinessShowPhotos extends React.Component {
         event.target.className === 'close-modal-text' ||
         event.target.className === 'close-modal') {
       this.setState({ showModal: false, modalPhoto: '', selectedPhoto: '' })
+      const container2 = document.getElementsByClassName(
+        "business-show-container-hidden"
+      );
+      if (container2.length > 0) {
+        container2[0].className = 'business-show-container'
+      }
     }
   }
 
@@ -50,7 +56,7 @@ class BusinessShowPhotos extends React.Component {
                 <div className="left-text-container-positioning">
                   <p>{dateStr}</p>
                   <div className="show-left-divider-bar"></div>
-                  <h3>Username</h3>
+                  <h3>{this.props.uploader}</h3>
                 </div>
               </div>
             </div>
