@@ -292,7 +292,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(51, 51, 51, 0.651);
+    background: rgba(51, 51, 51, 0.88);
     z-index: 1;
     display: flex;
     justify-content: center;
@@ -359,7 +359,7 @@
 
 .show-inner-modal-container {
     background-color: black;
-    height: 855px;
+    height: 93vh;
     border-radius: 7px;
     display: flex;
 }
@@ -393,7 +393,7 @@
 }
 
 .left-text-container-positioning {
-    height: 85%;
+    height: 44%;
     margin: 12px;
 }
 
@@ -401,15 +401,63 @@
     color: rgb(198, 198, 198);
     font-size: 13px;
     font-family: sans-serif;
-    /* margin: 10px; */
 }
 
 .left-text-container-positioning > div {
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid #afadad5e;
+    margin: 9px 0px;
 }
 
 .left-text-container-positioning > h3 {
     color: white;
     font-size: 15px;
     font-family: sans-serif;
+}
+
+.show-right-pictures-container {
+    background-color: white;
+    border-radius: 0px 7px 7px 0px;
+    width: 364px;
+}
+
+.show-right-text-container {
+    font-family: sans-serif;
+    font-weight: 700;
+    margin-top: 30px;
+}
+
+.show-right-photos-list {
+    overflow: scroll;
+    height: 92.8%;
+    margin: 0px 30px;
+}
+
+.show-right-photos-list::-webkit-scrollbar {
+  display: none;
+}
+
+.show-right-text-container > h1 {
+    margin-left: 30px;
+}
+
+.show-right-photos {
+    height: 35%;
+    margin: 10px;
+    max-height: 207px;
+}
+
+.show-right-photos > img {
+    height: 100%;
+    width: 100%;
+    border-radius: 7px;
+}
+
+.show-right-photos-selected {
+    border-radius: 7px;
+    border: 3px solid #0097EC;
+    opacity: 0.5;
+}
+
+.show-picture-holder {
+    display: block;
 }

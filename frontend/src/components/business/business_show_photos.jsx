@@ -6,17 +6,31 @@ class BusinessShowPhotos extends React.Component {
     super(props)
 
     this.state = {
-      showModal: false
+      showModal: false,
+      modalPhoto: "",
+      selectedPhoto: ''
     };
 
     this.showModal = this.showModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
-  showModal() {
-    this.setState({ showModal: true })
+  showModal(event) {
+    this.setState({ showModal: true, modalPhoto: event.target.src, selectedPhoto: event.target.dataset.key })
+
+    let selected = document.getElementsByClassName('show-right-photos-selected')
+    if (selected.length > 0) {
+    }
+    event.target.className = 'show-right-photos-selected';
 
     const container = document.getElementsByClassName('business-show-container')
-    container[0].className = 'business-show-container-hidden'
+    if (container.length > 0) {
+      container[0].className = 'business-show-container-hidden'
+    }
+  }
+
+  closeModal() {
+    this.setState({ showModal: false, modalPhoto: '', selectedPhoto: '' })
   }
 
   render() {
@@ -31,7 +45,7 @@ class BusinessShowPhotos extends React.Component {
           </div>
           <div className="show-inner-modal-container">
             <div className="show-left-picture-container">
-              <img src={this.props.photo} alt="uploaded-photo"/>
+              <img src={this.state.modalPhoto} alt="uploaded-photo"/>
               <div className="show-left-text-container">
                 <div className="left-text-container-positioning">
                   <p>{dateStr}</p>
@@ -42,20 +56,25 @@ class BusinessShowPhotos extends React.Component {
             </div>
             <div className="show-right-pictures-container">
               <div className="show-right-text-container">
-                <h1>Photos for restaurant</h1>
+                <h1>Photos for {this.props.business}</h1>
               </div>
                 <ul className="show-right-photos-list">
-
+                {this.props.allPhotos.map(photo => {
+                  let imgClass;
+                  photo._id === this.state.selectedPhoto ? imgClass = 'show-right-photos-selected' : imgClass = 'show-picture-holder'
+                  return <li className="show-right-photos" key={photo._id}><img className={imgClass} src={photo.photoURL} data-key={photo._id} alt="photo-img" onClick={this.showModal} /></li>}
+                )}
                 </ul>
             </div>
           </div>
         </div>
       </div>
     )
+
     return (
       <li className="business-show-photo-li">
-        <img className="business-show-photo-img" src={this.props.photo} onClick={this.showModal}/>
-        { this.state.showModal && postModal } 
+        <img className="business-show-photo-img" data-key={this.props.photoD._id} src={this.props.photo} onClick={this.showModal}/>
+        { this.state.showModal ? postModal : null } 
       </li>
     )
   }
